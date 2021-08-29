@@ -8,5 +8,3 @@
 </head>
 
 <body>
-	<h2>Crud MVC</h2>
-	<hr />
