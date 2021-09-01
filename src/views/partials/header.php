@@ -21,7 +21,10 @@
 			<div class="col-1">
 				<ul class="nav flex-column">
 					<li class="nav-item">
-						<a class="nav-link active" aria-current="page" href="#">Painel de Mesas</a>
+						<a class="nav-link active" aria-current="page" href="#">
+							<img src="<?= $base ?>/assets/img/mesa.png" />
+							<p>Mesas</p>
+						</a>
 					</li>
 					<li class="nav-item">
 						<a class="nav-link" href="#">Produtos</a>
