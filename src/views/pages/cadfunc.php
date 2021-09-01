@@ -1,7 +1,8 @@
 <?php $render('header'); ?>
 
-<div class="container">
-    <img id="imgiconlogin1" class="rounded mx-auto d-block" src="<?= $base; ?>/assets/img/commandbar.png" /><br><br>
+<div class="col-8">
+    <br>
+    <h2>Cadastro de Funcionário</h2>
     <form class="row g-3">
         <div class="col-md-6">
             <label for="funcName" class="form-label">Nome</label>
@@ -19,7 +20,7 @@
             <label for="funcEmail" class="form-label">Email</label>
             <input type="email" class="form-control" id="funcEmail" placeholder="exemplo@exemplo.com" name="FUNC_EMAIL">
         </div>
-        <div class="col-md-6">
+        <div class="col-md-8">
             <label for="funcEnd" class="form-label">Endereço</label>
             <input type="text" class="form-control" id="funcEnd" name="FUNC_END">
         </div>
@@ -28,24 +29,23 @@
             <input type="text" class="form-control" id="funcEnd" name="FUNC_NUM">
         </div>
         <div class="col-md-2">
-            <label for="funcCep" class="form-label">CEP</label>
-            <input type="text" class="form-control" id="funcCep" name="FUNC_CEP">
+            <label for="funcCep" class="form-label">Cep</label>
+            <div id="funcCep" class="input-group mb-2">
+                <button type="button" class="btn btn-success"><img src="<?= $base ?>/assets/img/lupa.png" /></button>
+                <input type="text" class="form-control" placeholder="CEP">
+            </div>
         </div>
-        <div class="col-md-2">
-            <label for="funcCep" class="form-label">CEP</label>
-            <button type="button" class="btn btn-dark">Pesquisar CEP</button>
-        </div>
-
-        <div class="col-md-6">
-            <label for="inputCity" class="form-label">City</label>
-            <input type="text" class="form-control" id="inputCity">
+        <div class="col-md-7">
+            <label for="funcDISTRIC" class="form-label">Bairro</label>
+            <input type="text" class="form-control" id="funcDISTRIC" name="FUNC_DISTRIC">
         </div>
         <div class="col-md-4">
+            <label for="funcCity" class="form-label">Cidade</label>
+            <input type="text" class="form-control" id="funcCity" name="FUNC_CITY">
+        </div>
+        <div class="col-md-1">
             <label for="inputState" class="form-label">UF</label>
-            <select id="inputState" class="form-select">
-                <option selected>AM</option>
-                <option>...</option>
-            </select>
+            <input id="inputState" class="form-control" name="FUNC_UF">
         </div>
 
         <div class="col-12">
