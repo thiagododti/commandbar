@@ -1,6 +1,6 @@
 <?php $render('header'); ?>
 
-<div class="col-10">
+<div class="col-9">
     <div class="row justify-content-center">
         <div class="col-8">
             <br>
@@ -80,7 +80,7 @@
                     <input id="inputState" class="form-control" name="FUNC_UF">
                 </div>
                 <div class="col-12">
-                    <button type="submit" class="btn btn-primary" onclick="return validarSenha()">Cadastrar</button>
+                    <button type="submit" class="btn btn-dark" onclick="return validarSenha()">Cadastrar</button>
                 </div>
             </form>
         </div>

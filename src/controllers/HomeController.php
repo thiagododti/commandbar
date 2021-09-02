@@ -9,6 +9,11 @@ class HomeController extends Controller
 
     public function index()
     {
-        $this->render('cadFunc');
+        $this->render('home');
+    }
+
+    public function mesas()
+    {
+        $this->render('mesas');
     }
 }

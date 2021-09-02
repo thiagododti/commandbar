@@ -1,4 +1,4 @@
-<?php $render('header'); ?>
+<?php $render('headerindex'); ?>
 
 <div class="container">
     <br><br><br><br><br>
@@ -24,4 +24,4 @@
 </div>
 
 
-<?php $render('footer'); ?>
+<?php $render('footerindex'); ?>
