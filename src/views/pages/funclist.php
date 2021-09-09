@@ -19,7 +19,7 @@
                 <th scope="col">#</th>
                 <th scope="col">Nome</th>
                 <th scope="col">Cargo</th>
-                <th scope="col">CPF</th>231205
+                <th scope="col">CPF</th>
                 <th scope="col">Email</th>
                 <th scope="col">#</th>
             </tr>

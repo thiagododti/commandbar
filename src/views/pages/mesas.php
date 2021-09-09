@@ -1,5 +1,5 @@
 <?php $render('header'); ?>
-<div class="col-11">
+<div class="col-10 justify-content-center">
 
     <div class="row">
         <a class="col" href="#" style="background-color: aqua;">

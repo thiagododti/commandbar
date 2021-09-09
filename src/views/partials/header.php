@@ -5,17 +5,18 @@
 	<meta charset="utf-8">
 	<link rel="stylesheet" href="<?= $base; ?>/assets/css/bootstrap.min.css" />
 	<link rel="stylesheet" href="<?= $base; ?>/assets/css/variaveis.css" />
-	
+
 </head>
 
 <body>
-	<div class="container-fluid.no-gutters">
-		<nav class="navbar navbar-dark bg-dark">
-			<a class="navbar-brand " href="#">
-				<img src="<?= $base; ?>/assets/img/loja.png" alt="" class="d-inline-block align-text-block">
-				Command Bar | Gerenciamento do estabelecimento
-			</a>
-		</nav>
+	<nav class="navbar navbar-dark bg-dark">
+		<a class="navbar-brand " href="#">
+			<img src="<?= $base; ?>/assets/img/loja.png" alt="" class="d-inline-block align-text-block">
+			Command Bar | Gerenciamento do estabelecimento
+		</a>
+	</nav>
+	<div class="container-fluid">
+
 		<div class="row">
 			<div class="col-1">
 				<ul class="nav flex-column">
