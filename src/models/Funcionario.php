@@ -6,4 +6,6 @@ use \core\Model;
 
 class Funcionario extends Model
 {
+
+    
 }
