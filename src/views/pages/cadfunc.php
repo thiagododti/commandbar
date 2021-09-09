@@ -62,9 +62,9 @@
                 </div>
                 <div class="col-md-2">
                     <label for="funcCep" class="form-label">Cep</label>
-                    <div id="funcCep" class="input-group mb-2">
-                        <button type="button" class="btn btn-success"><img src="<?= $base ?>/assets/img/lupa.png" /></button>
-                        <input type="text" class="form-control" placeholder="CEP">
+                    <div class="input-group mb-2">
+                        <button type="button" onClick="pesquisacep(funcCep.value)" class="btn btn-success"><img src="<?= $base ?>/assets/img/lupa.png" /></button>
+                        <input id="funcCep" type="text" class="form-control" placeholder="CEP">
                     </div>
                 </div>
                 <div class="col-md-7">
@@ -76,8 +76,8 @@
                     <input type="text" class="form-control" id="funcCity" name="FUNC_CITY">
                 </div>
                 <div class="col-md-1">
-                    <label for="inputState" class="form-label">UF</label>
-                    <input id="inputState" class="form-control" name="FUNC_UF">
+                    <label for="funcUf" class="form-label">UF</label>
+                    <input id="funcUf" class="form-control" name="FUNC_UF">
                 </div>
                 <div class="col-12">
                     <button type="submit" class="btn btn-dark" onclick="return validarSenha()">Cadastrar</button>
