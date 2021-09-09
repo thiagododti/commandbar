@@ -5,7 +5,7 @@
 	<meta charset="utf-8">
 	<link rel="stylesheet" href="<?= $base; ?>/assets/css/bootstrap.min.css" />
 	<link rel="stylesheet" href="<?= $base; ?>/assets/css/variaveis.css" />
-	<script type="text/javascript" src="<?= $base; ?>/assets/js/scripts.js"></script>
+	
 </head>
 
 <body>
