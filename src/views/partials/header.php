@@ -15,11 +15,11 @@
 			Command Bar | Gerenciamento do estabelecimento
 		</a>
 	</nav>
-	<div class="container-fluid">
+	<div class="container-fluid h-100">
 
-		<div class="row">
-			<div class="col-1">
-				<ul class="nav flex-column">
+		<div class="row h-100">
+			<div class="col-1" style="background-color: blue;">
+				<ul class=" nav flex-column">
 					<li class="nav-item">
 						<a align="center" class="nav-link link-dark" aria-current="page" href="<?= $base; ?>/mesas">
 							<img src="<?= $base ?>/assets/img/cardapio.png" />

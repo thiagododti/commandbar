@@ -1,8 +1,8 @@
 <?php $render('header'); ?>
 <div class="col-10 justify-content-center">
 
-    <div class="row">
-        <a class="col" id="mesas" href="#" style="background-color: aqua;">
+    <div class="row h-100">
+        <a class="col h-100" id="mesas" href="#" style="background-color: aqua;">
             <div class="btn btn-outline-primary">MESA 1</div>
         </a>
         <a class="col" id="mesas" href="#">
@@ -27,7 +27,7 @@
 
 
 
-</div>
+
 
 
 
