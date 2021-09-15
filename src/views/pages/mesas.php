@@ -2,7 +2,7 @@
 <div class="col-10 justify-content-center">
 
     <div class="row">
-        <a class="col" href="#" style="background-color: aqua;">
+        <a class="col h-100" href="#" style="background-color: aqua;">
             <div class="col">MESA 1<br><br><br><br><br></div>
         </a>
         <a class="col" href="#">
