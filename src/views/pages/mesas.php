@@ -1,26 +1,64 @@
 <?php $render('header'); ?>
-<div class="col-10 justify-content-center">
-
-    <div class="row h-100">
-        <a class="col h-100" id="mesas" href="#" style="background-color: aqua;">
-            <div class="btn btn-outline-primary">MESA 1</div>
+<div class="col-11 justify-content-center">
+    <div class="row h-50">
+        <a class="col h-100 btn btn-outline-primary" href="#">
+            Mesa
         </a>
-        <a class="col" id="mesas" href="#">
-            <div class="btn btn-outline-primary">MESA 2</div>
+        <a class="col h-100 btn btn-outline-primary" href="#">
+            Mesa
         </a>
-        <a class="col" id="mesas" href="#" style="background-color: aqua;">
-            <div class="btn btn-outline-primary">MESA 3</div>
+        <a class="col h-100 btn btn-outline-primary" href="#">
+            Mesa
         </a>
-        <a class="col" id="mesas" href="#">
-            <div class="btn btn-outline-primary">MESA 4</div>
+        <a class="col h-100 btn btn-outline-primary" href="#">
+            Mesa
         </a>
-        <a class="col" id="mesas" href="#" style="background-color: aqua;">
-            <div class="btn btn-outline-primary">MESA 5</div>
+        <a class="col h-100 btn btn-outline-primary" href="#">
+            Mesa
         </a>
-        <a class="col" id="mesas" href="#">
-            <div class="btn btn-outline-primary">MESA 6</div>
+        <a class="col h-100 btn btn-outline-primary" href="#">
+            Mesa
         </a>
-
+    </div>
+    <div class="row h-50">
+        <a class="col h-100 btn btn-outline-primary" href="#">
+            Mesa
+        </a>
+        <a class="col h-100 btn btn-outline-primary" href="#">
+            Mesa
+        </a>
+        <a class="col h-100 btn btn-outline-primary" href="#">
+            Mesa
+        </a>
+        <a class="col h-100 btn btn-outline-primary" href="#">
+            Mesa
+        </a>
+        <a class="col h-100 btn btn-outline-primary" href="#">
+            Mesa
+        </a>
+        <a class="col h-100 btn btn-outline-primary" href="#">
+            Mesa
+        </a>
+    </div>
+    <div class="row h-50">
+        <a class="col h-100 btn btn-outline-primary" href="#">
+            Mesa
+        </a>
+        <a class="col h-100 btn btn-outline-primary" href="#">
+            Mesa
+        </a>
+        <a class="col h-100 btn btn-outline-primary" href="#">
+            Mesa
+        </a>
+        <a class="col h-100 btn btn-outline-primary" href="#">
+            Mesa
+        </a>
+        <a class="col h-100 btn btn-outline-primary" href="#">
+            Mesa
+        </a>
+        <a class="col h-100 btn btn-outline-primary" href="#">
+            Mesa
+        </a>
     </div>
 
 </div>

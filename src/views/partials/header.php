@@ -15,7 +15,7 @@
 			Command Bar | Gerenciamento do estabelecimento
 		</a>
 	</nav>
-	<div class="container-fluid h-99">
+	<div class="container-fluid">
 
 		<div class="row h-100">
 			<div class="col-1" style="background-color: blue;">
