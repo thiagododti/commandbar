@@ -35,7 +35,7 @@
 					<li class="nav-item">
 						<a align="center" class="nav-link link-dark" aria-current="page" href="<?= $base; ?>/funcionarios">
 							<img src="<?= $base ?>/assets/img/funcionarios.png" />
-							<p align="center">Funcionarios</p>
+							<p align="center">Funcionários</p>
 						</a>
 					</li>
 					<li class="nav-item">
