@@ -18,7 +18,7 @@
 	<div class="container-fluid">
 
 		<div class="row h-100">
-			<div class="col-1" style="background-color: blue;">
+			<div class="col-1">
 				<ul class=" nav flex-column">
 					<li class="nav-item">
 						<a align="center" class="nav-link link-dark" aria-current="page" href="<?= $base; ?>/mesas">
