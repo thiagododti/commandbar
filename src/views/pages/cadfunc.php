@@ -5,7 +5,7 @@
         <div class="col-8">
             <br>
             <h2>Cadastro de Funcionário</h2>
-            <form class="row g-3">
+            <form class="row g-3" method="POST" action="<?= $base; ?>/funcionarios/cadastrar">
                 <div class="col-md-6">
                     <label for="funcName" class="form-label">Nome</label>
                     <input type="text" class="form-control" id="funcName" name="FUNC_NAME">
@@ -58,18 +58,19 @@
                 </div>
                 <div class="col-md-2">
                     <label for="funcEnd" class="form-label">Numero</label>
-                    <input type="text" class="form-control" id="funcEnd" name="FUNC_NUM">
+                    <input type="text" class="form-control" id="funcNum" name="FUNC_NUM">
                 </div>
                 <div class="col-md-2">
                     <label for="funcCep" class="form-label">Cep</label>
                     <div class="input-group mb-2">
-                        <button type="button" onClick="pesquisacep(funcCep.value)" class="btn btn-success"><img src="<?= $base ?>/assets/img/lupa.png" /></button>
-                        <input id="funcCep" type="text" class="form-control" placeholder="CEP">
+                        <button type="button" onClick="pesquisacep(funcCep.value)" class="btn btn-success">
+                            <img src="<?= $base ?>/assets/img/lupa.png" /></button>
+                        <input id="funcCep" type="text" class="form-control" name="FUNC_CEP" placeholder="CEP">
                     </div>
                 </div>
                 <div class="col-md-7">
-                    <label for="funcDISTRIC" class="form-label">Bairro</label>
-                    <input type="text" class="form-control" id="funcDISTRIC" name="FUNC_DISTRIC">
+                    <label for="funcDistric" class="form-label">Bairro</label>
+                    <input type="text" class="form-control" id="funcDistric" name="FUNC_DISTRIC">
                 </div>
                 <div class="col-md-4">
                     <label for="funcCity" class="form-label">Cidade</label>
@@ -77,7 +78,7 @@
                 </div>
                 <div class="col-md-1">
                     <label for="funcUf" class="form-label">UF</label>
-                    <input id="funcUf" class="form-control" name="FUNC_UF">
+                    <input type="text" id="funcUf" class="form-control" name="FUNC_UF">
                 </div>
                 <div class="col-12">
                     <button type="submit" class="btn btn-dark" onclick="return validarSenha()">Cadastrar</button>

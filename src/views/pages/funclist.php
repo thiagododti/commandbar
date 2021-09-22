@@ -7,7 +7,7 @@
             <h2>Funcionários</h2>
         </div>
         <div class="col">
-            <a href="<?= $base; ?>/cadastrar/funcionario">
+            <a href="<?= $base; ?>/funcionarios/cadastrar">
                 <button type="button" class="btn btn-dark">Cadastrar Funcionário</button>
             </a>
         </div>
@@ -23,6 +23,16 @@
                 <th scope="col">Email</th>
                 <th scope="col">#</th>
             </tr>
+            <?php foreach ($funcionarios as $funcionario) : ?>
+                <tr>
+                    <td><?= $funcionario['FUNC_ID']; ?></td>
+                    <td><?= $funcionario['FUNC_NAME']; ?></td>
+                    <td><?= $funcionario['FUNC_CARG']; ?></td>
+                    <td><?= $funcionario['FUNC_CPF']; ?></td>
+                    <td><?= $funcionario['FUNC_EMAIL']; ?></td>
+                    <td>...</td>
+                </tr>
+            <?php endforeach; ?>
         </thead>
         <tbody>
 

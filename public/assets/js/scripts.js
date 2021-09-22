@@ -19,16 +19,16 @@ funcPass2.addEventListener('input', validarSenha);
 function limpa_formulário_cep() {
     //Limpa valores do formulário de cep.
     document.getElementById('funcEnd').value = ("");
-    document.getElementById('funcDISTRIC').value = ("");
+    document.getElementById('funcDistric').value = ("");
     document.getElementById('funcCity').value = ("");
-    document.getElementById('inputState').value = ("");
+    document.getElementById('funcUf').value = ("");
 }
 
 function meu_callback(conteudo) {
     if (!("erro" in conteudo)) {
         //Atualiza os campos com os valores.
         document.getElementById('funcEnd').value = (conteudo.logradouro);
-        document.getElementById('funcDISTRIC').value = (conteudo.bairro);
+        document.getElementById('funcDistric').value = (conteudo.bairro);
         document.getElementById('funcCity').value = (conteudo.localidade);
         document.getElementById('funcUf').value = (conteudo.uf);
     } //end if.
@@ -55,7 +55,7 @@ function pesquisacep(valor) {
 
             //Preenche os campos com "..." enquanto consulta webservice.
             document.getElementById('funcEnd').value = "...";
-            document.getElementById('funcDISTRIC').value = "...";
+            document.getElementById('funcDistric').value = "...";
             document.getElementById('funcCity').value = "...";
             document.getElementById('funcUf').value = "...";
 
