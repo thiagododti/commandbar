@@ -4,9 +4,23 @@ namespace src\controllers;
 
 use \core\Controller;
 use src\models\Funcionario;
+use \src\suport\LoginSuport;
 
 class FuncionarioController extends Controller
 {
+
+
+    private $usuarioLogado;
+
+    public function __construct()
+    {
+        $this->usuarioLogado = LoginSuport::checkLogin();
+
+        if (LoginSuport::checkLogin() === false) {
+            $this->redirect('/login');
+        }
+    }
+
 
     public function funcList()
     {
