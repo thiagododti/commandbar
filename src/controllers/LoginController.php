@@ -29,7 +29,7 @@ class LoginController extends Controller
             $token = LoginSuport::verificarLogin($funcCpf, $funcPass);
 
             if ($token) {
-                $_SESSION['token'] = $token;
+                $_SESSION['FUNC_TOKEN'] = $token;
                 $this->redirect('/');
             } else {
                 $_SESSION['flash'] = 'Cpf ou senha incorretos';

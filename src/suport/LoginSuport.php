@@ -13,7 +13,10 @@ class LoginSuport
 
             $token = $_SESSION['FUNC_TOKEN'];
 
-            $data = Funcionario::select()->where('FUNC_TOKEN')->one();
+            $data = Funcionario::select()
+                ->where('FUNC_TOKEN', $token)
+                ->one();
+
             if (count($data) > 0) {
 
                 $funcionarioLogado = new Funcionario();
@@ -41,9 +44,9 @@ class LoginSuport
                 $token = md5(time() . rand(0, 9999) . time());
 
                 Funcionario::update()
-                    ->set('FUNC_TOKEN')
+                    ->set('FUNC_TOKEN', $token)
                     ->where('FUNC_CPF', $funcCpf)
-                    ->execute;
+                    ->execute();
                 return $token;
             }
         }
