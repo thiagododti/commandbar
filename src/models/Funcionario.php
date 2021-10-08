@@ -6,6 +6,8 @@ use \core\Model;
 
 class Funcionario extends Model
 {
+}
 
-    
+interface FuncionarioDAO
+{
 }

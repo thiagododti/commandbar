@@ -5,6 +5,7 @@ namespace src\controllers;
 use \core\Controller;
 use src\models\Funcionario;
 use \src\suport\LoginSuport;
+use src\models\Funcionario\FuncionarioDAO;
 
 class FuncionarioController extends Controller
 {
