@@ -3,11 +3,10 @@
 namespace src\models\DAO;
 
 use PDO;
+use src\models\Funcionario;
+use src\models\FuncionarioDao;
 
-use \src\models\Funcionario;
-use \src\models\FuncionarioDao;
-
-class FuncionarioMysqlDAO implements FuncionarioDao 
+class FuncionarioMysqlDAO implements FuncionarioDao
 {
 
     private $pdo;
