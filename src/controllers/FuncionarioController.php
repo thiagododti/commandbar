@@ -6,22 +6,22 @@ use \core\Controller;
 use core\Database;
 use src\models\DAO\FuncionarioMysqlDAO;
 use src\models\Funcionario;
-use \src\models\DAO\LoginSuport;
+use \src\suport\LoginSuport;
 
 class FuncionarioController extends Controller
 {
 
 
-    private $usuarioLogado;
+    /*private $usuarioLogado;
 
     public function __construct()
     {
-         $usuarioLogado = new LoginSuport(Database::getInstance());
+        $this->usuarioLogado = LoginSuport::checkLogin();
 
-        if ($usuarioLogado === false) {
+        if (LoginSuport::checkLogin() === false) {
             $this->redirect('/login');
         }
-    }
+    }*/
 
 
     public function funcList()

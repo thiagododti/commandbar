@@ -8,7 +8,7 @@ use \src\suport\LoginSuport;
 class HomeController extends Controller
 {
 
-    private $usuarioLogado;
+    /*private $usuarioLogado;
 
     public function __construct()
     {
@@ -17,7 +17,7 @@ class HomeController extends Controller
         if (LoginSuport::checkLogin() === false) {
             $this->redirect('/login');
         }
-    }
+    }*/
 
     public function index()
     {
