@@ -25,11 +25,11 @@
             </tr>
             <?php foreach ($funcionarios as $funcionario) : ?>
                 <tr>
-                    <td><?= $funcionario['FUNC_ID']; ?></td>
-                    <td><?= $funcionario['FUNC_NAME']; ?></td>
-                    <td><?= $funcionario['FUNC_CARG']; ?></td>
-                    <td><?= $funcionario['FUNC_CPF']; ?></td>
-                    <td><?= $funcionario['FUNC_EMAIL']; ?></td>
+                    <td><?= $funcionario->getFuncId(); ?></td>
+                    <td><?= $funcionario->getFuncName(); ?></td>
+                    <td><?= $funcionario->getFuncCarg(); ?></td>
+                    <td><?= $funcionario->getFuncCpf(); ?></td>
+                    <td><?= $funcionario->getFuncEmail(); ?></td>
                     <td>...</td>
                 </tr>
             <?php endforeach; ?>

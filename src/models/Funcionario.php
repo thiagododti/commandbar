@@ -6,6 +6,7 @@ use \core\Model;
 
 class Funcionario extends Model
 {
+    private $funcId;
     private $funcName;
     private $funcSname;
     private $funcCpf;
@@ -15,145 +16,186 @@ class Funcionario extends Model
     private $funcAdmDate;
     private $funcDmsDate;
     private $funcPass;
-    private $funcPassHash;
     private $funcEnd;
     private $funcNum;
     private $funcCep;
     private $funcDistric;
     private $funcCity;
     private $funcUf;
-    
-    function getFuncName() {
+    private $funcToken;
+
+
+    function getFuncId()
+    {
+        return $this->funcId;
+    }
+
+    function getFuncName()
+    {
         return $this->funcName;
     }
 
-    function getFuncSname() {
+    function getFuncSname()
+    {
         return $this->funcSname;
     }
 
-    function getFuncCpf() {
+    function getFuncCpf()
+    {
         return $this->funcCpf;
     }
 
-    function getFuncEmail() {
+    function getFuncEmail()
+    {
         return $this->funcEmail;
     }
 
-    function getFuncSal() {
+    function getFuncSal()
+    {
         return $this->funcSal;
     }
 
-    function getFuncCarg() {
+    function getFuncCarg()
+    {
         return $this->funcCarg;
     }
 
-    function getFuncAdmDate() {
+    function getFuncAdmDate()
+    {
         return $this->funcAdmDate;
     }
 
-    function getFuncDmsDate() {
+    function getFuncDmsDate()
+    {
         return $this->funcDmsDate;
     }
 
-    function getFuncPass() {
+    function getFuncPass()
+    {
         return $this->funcPass;
     }
 
-    function getFuncPassHash() {
-        return $this->funcPassHash;
-    }
-
-    function getFuncEnd() {
+    function getFuncEnd()
+    {
         return $this->funcEnd;
     }
 
-    function getFuncNum() {
+    function getFuncNum()
+    {
         return $this->funcNum;
     }
 
-    function getFuncCep() {
+    function getFuncCep()
+    {
         return $this->funcCep;
     }
 
-    function getFuncDistric() {
+    function getFuncDistric()
+    {
         return $this->funcDistric;
     }
 
-    function getFuncCity() {
+    function getFuncCity()
+    {
         return $this->funcCity;
     }
 
-    function getFuncUf() {
+    function getFuncUf()
+    {
         return $this->funcUf;
     }
+    function getFuncToken()
+    {
+        return $this->funcToken;
+    }
 
-    function setFuncName($funcName) {
+    function setFuncId($funcid)
+    {
+        $this->funcId = $funcid;
+    }
+
+    function setFuncName($funcName)
+    {
         $this->funcName = $funcName;
     }
 
-    function setFuncSname($funcSname) {
+    function setFuncSname($funcSname)
+    {
         $this->funcSname = $funcSname;
     }
 
-    function setFuncCpf($funcCpf) {
+    function setFuncCpf($funcCpf)
+    {
         $this->funcCpf = $funcCpf;
     }
 
-    function setFuncEmail($funcEmail) {
+    function setFuncEmail($funcEmail)
+    {
         $this->funcEmail = $funcEmail;
     }
 
-    function setFuncSal($funcSal) {
+    function setFuncSal($funcSal)
+    {
         $this->funcSal = $funcSal;
     }
 
-    function setFuncCarg($funcCarg) {
+    function setFuncCarg($funcCarg)
+    {
         $this->funcCarg = $funcCarg;
     }
 
-    function setFuncAdmDate($funcAdmDate) {
+    function setFuncAdmDate($funcAdmDate)
+    {
         $this->funcAdmDate = $funcAdmDate;
     }
 
-    function setFuncDmsDate($funcDmsDate) {
+    function setFuncDmsDate($funcDmsDate)
+    {
         $this->funcDmsDate = $funcDmsDate;
     }
 
-    function setFuncPass($funcPass) {
+    function setFuncPass($funcPass)
+    {
         $this->funcPass = $funcPass;
     }
 
-    function setFuncPassHash($funcPassHash) {
-        $this->funcPassHash = $funcPassHash;
-    }
-
-    function setFuncEnd($funcEnd) {
+    function setFuncEnd($funcEnd)
+    {
         $this->funcEnd = $funcEnd;
     }
 
-    function setFuncNum($funcNum) {
+    function setFuncNum($funcNum)
+    {
         $this->funcNum = $funcNum;
     }
 
-    function setFuncCep($funcCep) {
+    function setFuncCep($funcCep)
+    {
         $this->funcCep = $funcCep;
     }
 
-    function setFuncDistric($funcDistric) {
+    function setFuncDistric($funcDistric)
+    {
         $this->funcDistric = $funcDistric;
     }
 
-    function setFuncCity($funcCity) {
+    function setFuncCity($funcCity)
+    {
         $this->funcCity = $funcCity;
     }
 
-    function setFuncUf($funcUf) {
+    function setFuncUf($funcUf)
+    {
         $this->funcUf = $funcUf;
     }
 
+    function setFuncToken($funcToken)
+    {
+        $this->funcToken = $funcToken;
+    }
 }
 
-interface FuncionarioDAO
+interface FuncionarioDao
 {
     public function buscarFuncionario($cpf);
     public function inserirFuncionario(Funcionario $f);

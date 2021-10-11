@@ -3,9 +3,10 @@
 namespace src\controllers;
 
 use \core\Controller;
+use core\Database;
+use src\models\DAO\FuncionarioMysqlDAO;
 use src\models\Funcionario;
-use \src\suport\LoginSuport;
-use src\models\Funcionario\FuncionarioDAO;
+use \src\models\DAO\LoginSuport;
 
 class FuncionarioController extends Controller
 {
@@ -15,9 +16,9 @@ class FuncionarioController extends Controller
 
     public function __construct()
     {
-        $this->usuarioLogado = LoginSuport::checkLogin();
+         $usuarioLogado = new LoginSuport(Database::getInstance());
 
-        if (LoginSuport::checkLogin() === false) {
+        if ($usuarioLogado === false) {
             $this->redirect('/login');
         }
     }
@@ -25,15 +26,10 @@ class FuncionarioController extends Controller
 
     public function funcList()
     {
-        $funcionarios = Funcionario::select([
-            'FUNC_ID',
-            'FUNC_NAME',
-            'FUNC_CARG',
-            'FUNC_CPF',
-            'FUNC_EMAIL'
-        ])->execute();
+        $funcionarioDao = new FuncionarioMysqlDAO(Database::getInstance());
+        $lista = $funcionarioDao->buscarTodos();
         $this->render('funclist', [
-            'funcionarios' => $funcionarios
+            'funcionarios' => $lista
         ]);
     }
 
@@ -66,26 +62,29 @@ class FuncionarioController extends Controller
 
         if ($funcCpf && $funcPassHash) {
 
-            $data = Funcionario::select()->where('FUNC_CPF', $funcCpf)->execute();
+            $novoFuncionario = new Funcionario();
+            $novoFuncionario->setFuncName($funcName);
+            $novoFuncionario->setFuncSname($funcSname);
+            $novoFuncionario->setFuncCpf($funcCpf);
+            $novoFuncionario->setFuncEmail($funcEmail);
+            $novoFuncionario->setFuncSal($funcSal);
+            $novoFuncionario->setFuncCarg($funcCarg);
+            $novoFuncionario->setFuncAdmDate($funcAdmDate);
+            $novoFuncionario->setFuncDmsDate($funcDmsDate);
+            $novoFuncionario->setFuncPass($funcPassHash);
+            $novoFuncionario->setFuncEnd($funcEnd);
+            $novoFuncionario->setFuncNum($funcNum);
+            $novoFuncionario->setFuncCep($funcCep);
+            $novoFuncionario->setFuncDistric($funcDistric);
+            $novoFuncionario->setFuncCity($funcCity);
+            $novoFuncionario->setFuncUf($funcUf);
 
-            if (count($data) === 0) {
-                Funcionario::insert([
-                    'FUNC_NAME' => $funcName,
-                    'FUNC_SNAME' => $funcSname,
-                    'FUNC_CPF' => $funcCpf,
-                    'FUNC_EMAIL' => $funcEmail,
-                    'FUNC_SAL' => $funcSal,
-                    'FUNC_CARG' => $funcCarg,
-                    'FUNC_ADMDATE' => $funcAdmDate,
-                    'FUNC_DMSDATE' => $funcDmsDate,
-                    'FUNC_PASS' => $funcPassHash,
-                    'FUNC_END' => $funcEnd,
-                    'FUNC_NUM' => $funcNum,
-                    'FUNC_CEP' => $funcCep,
-                    'FUNC_DISTRIC' => $funcDistric,
-                    'FUNC_CITY' => $funcCity,
-                    'FUNC_UF' => $funcUf,
-                ])->execute();
+            $inserirFunc = new FuncionarioMysqlDAO(Database::getInstance());
+            $data = $inserirFunc->buscarFuncionario($novoFuncionario);
+
+            if ($data === false) {
+
+                $inserirFunc->inserirFuncionario($novoFuncionario);
 
                 $this->redirect('/funcionarios');
                 echo 'alert("Funcionário Cadastrado com Sucesso");';
