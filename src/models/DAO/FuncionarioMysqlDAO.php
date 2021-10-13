@@ -30,6 +30,20 @@ class FuncionarioMysqlDAO implements FuncionarioDao
         }
     }
 
+    public function buscarToken($token)
+    {
+        $sql = $this->pdo->prepare("SELECT FUNC_CPF
+        FROM FUNCIONARIOS WHERE FUNC_TOKEN = ?");
+        $sql->bindValue(1, $token->getFuncCpf());
+        $sql->execute();
+
+        if ($sql->rowCount() > 0) {
+            return true;
+        } else {
+            return false;
+        }
+    }
+
     public function inserirFuncionario(Funcionario $f)
     {
         $sql = $this->pdo->prepare(
