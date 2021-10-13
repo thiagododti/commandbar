@@ -12,7 +12,7 @@ class FuncionarioController extends Controller
 {
 
 
-    /*private $usuarioLogado;
+    private $usuarioLogado;
 
     public function __construct()
     {
@@ -21,7 +21,7 @@ class FuncionarioController extends Controller
         if (LoginSuport::checkLogin() === false) {
             $this->redirect('/login');
         }
-    }*/
+    }
 
 
     public function funcList()
@@ -29,6 +29,7 @@ class FuncionarioController extends Controller
         $funcionarioDao = new FuncionarioMysqlDAO(Database::getInstance());
         $lista = $funcionarioDao->buscarTodos();
         $this->render('funclist', [
+
             'funcionarios' => $lista
         ]);
     }

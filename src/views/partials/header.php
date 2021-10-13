@@ -6,6 +6,8 @@
 	<link rel="stylesheet" href="<?= $base; ?>/assets/css/bootstrap.min.css" />
 	<link rel="stylesheet" href="<?= $base; ?>/assets/css/variaveis.css" />
 
+
+
 </head>
 
 <body>
