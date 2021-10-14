@@ -14,14 +14,17 @@ class HomeController extends Controller
     {
         $this->usuarioLogado = LoginSuport::checkLogin();
 
-        if (LoginSuport::checkLogin() === false) {
+        if ($this->usuarioLogado === false) {
             $this->redirect('/login');
         }
     }
 
     public function index()
     {
-        $this->render('mesas');
+        $this->render('mesas', [
+
+            'funcionarios' => $this->usuarioLogado
+        ]);
     }
 
     public function mesas()

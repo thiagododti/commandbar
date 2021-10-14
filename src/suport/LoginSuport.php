@@ -3,6 +3,9 @@
 namespace src\suport;
 
 use ClanCats\Hydrahon\Query\Sql\Func;
+use core\Database;
+use src\models\DAO\FuncionarioMysqlDAO;
+use src\models\DAO\LoginMysqlDao;
 use \src\models\Funcionario;
 
 class LoginSuport
@@ -13,18 +16,11 @@ class LoginSuport
 
             $token = $_SESSION['FUNC_TOKEN'];
 
-            $data = Funcionario::select()
-                ->where('FUNC_TOKEN', $token)
-                ->one();
+            $check = new LoginMysqlDao(Database::getInstance());
+            $data = $check->buscarToken($token);
 
             if (count($data) > 0) {
-
-                $funcionarioLogado = new Funcionario();
-                $funcionarioLogado->funcId = $data['FUNC_ID'];
-                $funcionarioLogado->funcCpf = $data['FUNC_CPF'];
-                $funcionarioLogado->funcName = $data['FUNC_NAME'];
-
-                return $funcionarioLogado;
+                return $data;
             } else {
                 return false;
             }

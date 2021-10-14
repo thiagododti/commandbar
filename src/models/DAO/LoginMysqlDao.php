@@ -16,23 +16,22 @@ class LoginMysqlDao
     }
     public function buscarToken($token)
     {
-        $sql = $this->pdo->prepare(
-            "SELECT *
-            FROM FUNCIONARIOS 
-            WHERE FUNC_TOKEN = ?"
-        );
-        $sql->bindValue(1, $token->getFuncToken());
+
+        $array = [];
+
+        $sql = $this->pdo->prepare("SELECT FUNC_TOKEN
+        FROM FUNCIONARIOS WHERE FUNC_TOKEN = ?");
+        $sql->bindValue(1, $token);
         $sql->execute();
-
+        $funcionario = $sql->fetchAll();
         if ($sql->rowCount() > 0) {
-
             $funcionarioLogado = new Funcionario();
-            $funcionarioLogado->setFuncId($sql['FUNC_ID']);
-            $funcionarioLogado->setFuncCpf($sql['FUNC_CPF']);
-            $funcionarioLogado->setFuncName($sql['FUNC_NAME']);
-            
-        } else {
-            return false;
+            $funcionarioLogado->setFuncId($funcionario['FUNC_ID']);
+            $funcionarioLogado->setFuncCpf($funcionario['FUNC_CPF']);
+            $funcionarioLogado->setFuncName($funcionario['FUNC_NAME']);
+
+            $array[] = $funcionarioLogado;
         }
+        return $array;
     }
 }
