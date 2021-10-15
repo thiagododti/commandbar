@@ -6,8 +6,6 @@ use \core\Controller;
 use core\Database;
 use src\models\Funcionario;
 
-
-
 class FuncionarioController extends Controller
 {
 

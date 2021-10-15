@@ -3,7 +3,6 @@
 namespace src\controllers;
 
 use \core\Controller;
-use \src\suport\LoginSuport;
 
 class HomeController extends Controller
 {

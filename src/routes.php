@@ -13,3 +13,8 @@ $router->get('/funcionarios', 'FuncionarioController@funcList');
 
 $router->get('/funcionarios/cadastrar', 'FuncionarioController@cadFunc');
 $router->post('/funcionarios/cadastrar', 'FuncionarioController@cadFuncAdd');
+
+$router->get('/produtos', 'ProdutoController@productList');
+
+$router->get('/produtos/cadastrar', 'ProdutoController@cadProd');
+$router->post('/produtos/cadastrar', 'ProdutoController@cadProdAdd');

@@ -29,7 +29,7 @@
 						</a>
 					</li>
 					<li class="nav-item">
-						<a align="center" class="nav-link link-dark" aria-current="page" href="#">
+						<a align="center" class="nav-link link-dark" aria-current="page" href="<?= $base; ?>/produtos">
 							<img src="<?= $base ?>/assets/img/prateleira.png" />
 							<p align="center">Produtos</p>
 						</a>
