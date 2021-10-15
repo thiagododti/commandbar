@@ -55,7 +55,6 @@ class FuncionarioController extends Controller
         if ($funcCpf && $funcPassHash) {
 
             $novoFuncionario = new Funcionario(Database::getInstance());
-
             $novoFuncionario->setFuncName($funcName);
             $novoFuncionario->setFuncSname($funcSname);
             $novoFuncionario->setFuncCpf($funcCpf);
