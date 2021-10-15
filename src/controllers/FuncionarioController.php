@@ -4,33 +4,24 @@ namespace src\controllers;
 
 use \core\Controller;
 use core\Database;
-use src\models\DAO\FuncionarioMysqlDAO;
 use src\models\Funcionario;
-use \src\suport\LoginSuport;
+
+
 
 class FuncionarioController extends Controller
 {
 
 
-    private $usuarioLogado;
-
-    public function __construct()
-    {
-        $this->usuarioLogado = LoginSuport::checkLogin();
-
-        if (LoginSuport::checkLogin() === false) {
-            $this->redirect('/login');
-        }
-    }
-
 
     public function funcList()
     {
-        $funcionarioDao = new FuncionarioMysqlDAO(Database::getInstance());
-        $lista = $funcionarioDao->buscarTodos();
+
+        $funcionarioDao = new Funcionario(Database::getInstance());
+        $array = $funcionarioDao->buscarTodos();
+
         $this->render('funclist', [
 
-            'funcionarios' => $lista
+            'funcionarios' => $array
         ]);
     }
 
@@ -63,7 +54,8 @@ class FuncionarioController extends Controller
 
         if ($funcCpf && $funcPassHash) {
 
-            $novoFuncionario = new Funcionario();
+            $novoFuncionario = new Funcionario(Database::getInstance());
+
             $novoFuncionario->setFuncName($funcName);
             $novoFuncionario->setFuncSname($funcSname);
             $novoFuncionario->setFuncCpf($funcCpf);
@@ -80,12 +72,12 @@ class FuncionarioController extends Controller
             $novoFuncionario->setFuncCity($funcCity);
             $novoFuncionario->setFuncUf($funcUf);
 
-            $inserirFunc = new FuncionarioMysqlDAO(Database::getInstance());
-            $data = $inserirFunc->buscarFuncionario($novoFuncionario);
+            $data = $novoFuncionario->buscarFuncionario($novoFuncionario);
 
-            if ($data === false) {
 
-                $inserirFunc->inserirFuncionario($novoFuncionario);
+            if (empty($data)) {
+
+                $novoFuncionario->inserirFuncionario($novoFuncionario);
 
                 $this->redirect('/funcionarios');
                 echo 'alert("Funcionário Cadastrado com Sucesso");';

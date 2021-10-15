@@ -7,9 +7,6 @@ $router = new Router();
 
 $router->get('/', 'HomeController@index');
 
-$router->get('/login', 'LoginController@index');
-$router->post('/login', 'LoginController@Acess');
-
 $router->get('/mesas', 'HomeController@mesas');
 
 $router->get('/funcionarios', 'FuncionarioController@funcList');

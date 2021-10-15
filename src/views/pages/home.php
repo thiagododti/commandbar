@@ -7,9 +7,6 @@
         <div class="col"></div>
         <div class="col">
 
-            <?php if (!empty($flash)); ?>
-
-            <?php echo $flash; ?>
 
             <form method="POST" action="<?= $base; ?>/login">
                 <div class="mb-3">
