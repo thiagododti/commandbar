@@ -18,3 +18,4 @@ $router->get('/produtos', 'ProdutoController@productList');
 
 $router->get('/produtos/cadastrar', 'ProdutoController@cadProd');
 $router->post('/produtos/cadastrar', 'ProdutoController@cadProdAdd');
+
