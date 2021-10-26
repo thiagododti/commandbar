@@ -52,7 +52,7 @@ class FuncionarioController extends Controller
         $funcUf = filter_input(INPUT_POST, 'FUNC_UF');
 
         if ($funcCpf && $funcPassHash) {
-            
+
             $novoEndereco = new Endereco(Database::getInstance());
             $novoEndereco->setEndLogr($funcEnd);
             $novoEndereco->setEndNum($funcNum);
@@ -61,9 +61,8 @@ class FuncionarioController extends Controller
             $novoEndereco->setEndCity($funcCity);
             $novoEndereco->setEndUf($funcUf);
             $novoEnd = $novoEndereco->inserirEndereco($novoEndereco);
-            
-            
-            
+
+
 
             $novoFuncionario = new Funcionario(Database::getInstance());
             $novoFuncionario->setFuncName($funcName);
@@ -76,20 +75,21 @@ class FuncionarioController extends Controller
             $novoFuncionario->setFuncDmsDate($funcDmsDate);
             $novoFuncionario->setFuncPass($funcPassHash);
             $novoFuncionario->setFuncEnd($novoEnd);
-            
 
             $data = $novoFuncionario->buscarFuncionario($novoFuncionario);
 
 
             if (empty($data)) {
 
-                $novoFuncionario->inserirFuncionario($novoFuncionario);
+                /*$novoFuncionario->inserirFuncionario($novoFuncionario);
 
                 $this->redirect('/funcionarios');
-                echo 'alert("Funcionário Cadastrado com Sucesso");';
+
+                echo 'alert("Funcionário Cadastrado com Sucesso");';*/
             }
         }
-
-        $this->redirect('/funcionarios');
+        echo $novoEnd;
+        print_r($data);
+        /*$this->redirect('/funcionarios',);*/
     }
 }

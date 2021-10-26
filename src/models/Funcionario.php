@@ -6,7 +6,8 @@ use core\Database;
 use \core\Model;
 use PDO;
 
-class Funcionario extends Model {
+class Funcionario extends Model
+{
 
     private $funcId;
     private $funcName;
@@ -22,107 +23,133 @@ class Funcionario extends Model {
     private $funcEnd;
     private $pdo;
 
-    public function __construct(PDO $driver) {
+    public function __construct(PDO $driver)
+    {
         $this->pdo = $driver;
     }
 
-    function getFuncId() {
+    function getFuncId()
+    {
         return $this->funcId;
     }
 
-    function getFuncName() {
+    function getFuncName()
+    {
         return $this->funcName;
     }
 
-    function getFuncSname() {
+    function getFuncSname()
+    {
         return $this->funcSname;
     }
 
-    function getFuncCpf() {
+    function getFuncCpf()
+    {
         return $this->funcCpf;
     }
 
-    function getFuncEmail() {
+    function getFuncEmail()
+    {
         return $this->funcEmail;
     }
 
-    function getFuncSal() {
+    function getFuncSal()
+    {
         return $this->funcSal;
     }
 
-    function getFuncCarg() {
+    function getFuncCarg()
+    {
         return $this->funcCarg;
     }
 
-    function getFuncAdmDate() {
+    function getFuncAdmDate()
+    {
         return $this->funcAdmDate;
     }
 
-    function getFuncDmsDate() {
+    function getFuncDmsDate()
+    {
         return $this->funcDmsDate;
     }
 
-    function getFuncPass() {
+    function getFuncPass()
+    {
         return $this->funcPass;
     }
 
-    function getFuncToken() {
+    function getFuncToken()
+    {
         return $this->funcToken;
     }
 
-    function getFuncEnd() {
+    function getFuncEnd()
+    {
         return $this->funcEnd;
     }
 
-    function setFuncId($funcId) {
+    function setFuncId($funcId)
+    {
         $this->funcId = $funcId;
     }
 
-    function setFuncName($funcName) {
+    function setFuncName($funcName)
+    {
         $this->funcName = $funcName;
     }
 
-    function setFuncSname($funcSname) {
+    function setFuncSname($funcSname)
+    {
         $this->funcSname = $funcSname;
     }
 
-    function setFuncCpf($funcCpf) {
+    function setFuncCpf($funcCpf)
+    {
         $this->funcCpf = $funcCpf;
     }
 
-    function setFuncEmail($funcEmail) {
+    function setFuncEmail($funcEmail)
+    {
         $this->funcEmail = $funcEmail;
     }
 
-    function setFuncSal($funcSal) {
+    function setFuncSal($funcSal)
+    {
         $this->funcSal = $funcSal;
     }
 
-    function setFuncCarg($funcCarg) {
+    function setFuncCarg($funcCarg)
+    {
         $this->funcCarg = $funcCarg;
     }
 
-    function setFuncAdmDate($funcAdmDate) {
+    function setFuncAdmDate($funcAdmDate)
+    {
         $this->funcAdmDate = $funcAdmDate;
     }
 
-    function setFuncDmsDate($funcDmsDate) {
+    function setFuncDmsDate($funcDmsDate)
+    {
         $this->funcDmsDate = $funcDmsDate;
     }
 
-    function setFuncPass($funcPass) {
+    function setFuncPass($funcPass)
+    {
         $this->funcPass = $funcPass;
     }
 
-    function setFuncToken($funcToken) {
+    function setFuncToken($funcToken)
+    {
         $this->funcToken = $funcToken;
     }
 
-    function setFuncEnd($funcEnd) {
+    function setFuncEnd($funcEnd)
+    {
         $this->funcId = $funcEnd;
     }
 
-    public function buscarFuncionario($cpf) {
+    public function buscarFuncionario($cpf)
+    {
         $array = [];
 
         $sql = $this->pdo->prepare("SELECT FUNC_CPF FROM FUNCIONARIOS WHERE FUNC_CPF = ?");
@@ -145,9 +172,10 @@ class Funcionario extends Model {
         return $array;
     }
 
-    public function inserirFuncionario(Funcionario $f) {
+    public function inserirFuncionario(Funcionario $f)
+    {
         $sql = $this->pdo->prepare(
-                "INSERT INTO FUNCIONARIOS (FUNC_NAME, FUNC_SNAME, FUNC_CPF, FUNC_EMAIL, FUNC_SAL,
+            "INSERT INTO FUNCIONARIOS (FUNC_NAME, FUNC_SNAME, FUNC_CPF, FUNC_EMAIL, FUNC_SAL,
             FUNC_CARG, FUNC_ADMDATE, FUNC_DMSDATE, FUNC_PASS, END_ID) VALUE (?,?,?,?,?,?,?,?,?,?)"
         );
         $sql->bindValue(1, $f->getFuncName());
@@ -166,15 +194,16 @@ class Funcionario extends Model {
         return $f;
     }
 
-    public function atualizarFuncionario(Funcionario $f) {
-        
+    public function atualizarFuncionario(Funcionario $f)
+    {
     }
 
-    public function buscarTodos() {
+    public function buscarTodos()
+    {
         $array = [];
 
         $sql = $this->pdo->query(
-                "SELECT FUNC_ID, FUNC_NAME, FUNC_CARG, FUNC_CPF, FUNC_EMAIL FROM FUNCIONARIOS "
+            "SELECT FUNC_ID, FUNC_NAME, FUNC_CARG, FUNC_CPF, FUNC_EMAIL FROM FUNCIONARIOS "
         );
 
         if ($sql->rowCount() > 0) {
@@ -194,8 +223,7 @@ class Funcionario extends Model {
         return $array;
     }
 
-    public function deletarFuncionario($id) {
-        
+    public function deletarFuncionario($id)
+    {
     }
-
 }

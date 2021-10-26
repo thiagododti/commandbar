@@ -35,6 +35,7 @@
                     <td><?= $funcionario->getFuncEmail(); ?></td>
                     <td>...</td>
                 </tr>
+
             <?php endforeach; ?>
         </thead>
         <tbody>
@@ -138,7 +139,7 @@
                 </div>
             </div>
             <div class="modal-footer">
-                
+
             </div>
         </div>
     </div>

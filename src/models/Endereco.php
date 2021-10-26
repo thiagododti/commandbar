@@ -6,7 +6,8 @@ use core\Database;
 use \core\Model;
 use PDO;
 
-class Endereco extends Model {
+class Endereco extends Model
+{
 
     private $endId;
     private $endLogr;
@@ -17,72 +18,86 @@ class Endereco extends Model {
     private $endUf;
     private $pdo;
 
-    public function __construct(PDO $driver) {
+    public function __construct(PDO $driver)
+    {
         $this->pdo = $driver;
     }
 
-    function getEndId() {
+    function getEndId()
+    {
         return $this->endId;
     }
 
-    function getEndLogr() {
+    function getEndLogr()
+    {
         return $this->endLogr;
     }
 
-    function getEndNum() {
+    function getEndNum()
+    {
         return $this->endNum;
     }
 
-    function getEndCep() {
+    function getEndCep()
+    {
         return $this->endCep;
     }
 
-    function getEndDistric() {
+    function getEndDistric()
+    {
         return $this->endDistric;
     }
 
-    function getEndCity() {
+    function getEndCity()
+    {
         return $this->endCity;
     }
 
-    function getEndUf() {
+    function getEndUf()
+    {
         return $this->endUf;
     }
 
-    function setEndId($endId) {
+    function setEndId($endId)
+    {
         $this->endId = $endId;
     }
 
-    function setEndLogr($endLogr) {
+    function setEndLogr($endLogr)
+    {
         $this->endLogr = $endLogr;
     }
 
-    function setEndNum($endNum) {
+    function setEndNum($endNum)
+    {
         $this->endNum = $endNum;
     }
 
-    function setEndCep($endCep) {
+    function setEndCep($endCep)
+    {
         $this->endCep = $endCep;
     }
 
-    function setEndDistric($endDistric) {
+    function setEndDistric($endDistric)
+    {
         $this->endDistric = $endDistric;
     }
 
-    function setEndCity($endCity) {
+    function setEndCity($endCity)
+    {
         $this->endCity = $endCity;
     }
 
-    function setEndUf($endUf) {
+    function setEndUf($endUf)
+    {
         $this->endUf = $endUf;
     }
 
-    public function inserirEndereco(Endereco $end){
-        
-        $novoEndereco;
-        
+    public function inserirEndereco(Endereco $end)
+    {
+
         $sql = $this->pdo->prepare(
-                "INSERT INTO ENDERECOS (END_LOGR, END_NUM, END_CEP, END_CITY, END_DISTRIC, END_UF) VALUE (?,?,?,?,?,?)"
+            "INSERT INTO ENDERECOS (END_LOGR, END_NUM, END_CEP, END_CITY, END_DISTRIC, END_UF) VALUE (?,?,?,?,?,?)"
         );
         $sql->bindValue(1, $end->getEndLogr());
         $sql->bindValue(2, $end->getEndNum());
@@ -92,9 +107,9 @@ class Endereco extends Model {
         $sql->bindValue(6, $end->getEndUf());
         $sql->execute();
 
-        $novoEndereco = new Endereco(Database::getInstance());
-        $novoEndereco->setEndId($this->pdo->lastInsertId());
-        return $novoEndereco;
+
+
+
+        /*return $this->pdo->lastInsertId();*/
     }
 }
-
