@@ -4,7 +4,7 @@ namespace src\models;
 
 use core\Database;
 use \core\Model;
-use PDO;
+use mysqli;
 
 class Endereco extends Model
 {
@@ -16,12 +16,6 @@ class Endereco extends Model
     private $endDistric;
     private $endCity;
     private $endUf;
-    private $pdo;
-
-    public function __construct(PDO $driver)
-    {
-        $this->pdo = $driver;
-    }
 
     function getEndId()
     {
@@ -93,10 +87,27 @@ class Endereco extends Model
         $this->endUf = $endUf;
     }
 
+    public function buscarEndereco(Endereco $end)
+    {
+
+        $sql = Database::getInstance()->prepare(
+            "SELECT END_ID FROM ENDERECOS WHERE END_CEP = ? AND END_NUM = ?"
+        );
+        $sql->bindValue(3, $end->getEndCep());
+        $sql->bindValue(2, $end->getEndNum());
+        $sql->execute();
+
+        if ($sql->rowCount() > 0) {
+            $id = $sql->fetchAll(PDO::FETCH_ASSOC);
+        }
+
+        return $id;
+    }
+
     public function inserirEndereco(Endereco $end)
     {
 
-        $sql = $this->pdo->prepare(
+        $sql = Database::getInstance()->prepare(
             "INSERT INTO ENDERECOS (END_LOGR, END_NUM, END_CEP, END_CITY, END_DISTRIC, END_UF) VALUE (?,?,?,?,?,?)"
         );
         $sql->bindValue(1, $end->getEndLogr());
@@ -108,8 +119,6 @@ class Endereco extends Model
         $sql->execute();
 
 
-
-
-        /*return $this->pdo->lastInsertId();*/
+        $id->buscarEndereco($end);
     }
 }

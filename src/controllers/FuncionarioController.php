@@ -62,8 +62,6 @@ class FuncionarioController extends Controller
             $novoEndereco->setEndUf($funcUf);
             $novoEnd = $novoEndereco->inserirEndereco($novoEndereco);
 
-
-
             $novoFuncionario = new Funcionario(Database::getInstance());
             $novoFuncionario->setFuncName($funcName);
             $novoFuncionario->setFuncSname($funcSname);
@@ -81,7 +79,7 @@ class FuncionarioController extends Controller
 
             if (empty($data)) {
 
-                /*$novoFuncionario->inserirFuncionario($novoFuncionario);
+                /*  $novoFuncionario->inserirFuncionario($novoFuncionario);
 
                 $this->redirect('/funcionarios');
 
@@ -89,7 +87,8 @@ class FuncionarioController extends Controller
             }
         }
         echo $novoEnd;
-        print_r($data);
-        /*$this->redirect('/funcionarios',);*/
+        print_r($novoFuncionario);
+        /*
+        $this->redirect('/funcionarios',);*/
     }
 }

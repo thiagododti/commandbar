@@ -4,7 +4,7 @@ namespace src\models;
 
 use core\Database;
 use \core\Model;
-use PDO;
+
 
 class Funcionario extends Model
 {
@@ -21,12 +21,7 @@ class Funcionario extends Model
     private $funcPass;
     private $funcToken;
     private $funcEnd;
-    private $pdo;
 
-    public function __construct(PDO $driver)
-    {
-        $this->pdo = $driver;
-    }
 
     function getFuncId()
     {
@@ -152,7 +147,7 @@ class Funcionario extends Model
     {
         $array = [];
 
-        $sql = $this->pdo->prepare("SELECT FUNC_CPF FROM FUNCIONARIOS WHERE FUNC_CPF = ?");
+        $sql = Database::getInstance()->prepare("SELECT FUNC_CPF FROM FUNCIONARIOS WHERE FUNC_CPF = ?");
         $sql->bindValue(1, $cpf->getFuncCpf());
         $sql->execute();
 
@@ -160,7 +155,7 @@ class Funcionario extends Model
             $funcionarios = $sql->fetchAll();
 
             foreach ($funcionarios as $funcionario) {
-                $func = new Funcionario(Database::getInstance());
+                $func = new Funcionario();
                 $func->setFuncId($funcionario['FUNC_ID']);
                 $func->setFuncName($funcionario['FUNC_NAME']);
                 $func->setFuncCpf($funcionario['FUNC_CPF']);
@@ -174,7 +169,7 @@ class Funcionario extends Model
 
     public function inserirFuncionario(Funcionario $f)
     {
-        $sql = $this->pdo->prepare(
+        $sql = Database::getInstance()->prepare(
             "INSERT INTO FUNCIONARIOS (FUNC_NAME, FUNC_SNAME, FUNC_CPF, FUNC_EMAIL, FUNC_SAL,
             FUNC_CARG, FUNC_ADMDATE, FUNC_DMSDATE, FUNC_PASS, END_ID) VALUE (?,?,?,?,?,?,?,?,?,?)"
         );
@@ -190,7 +185,7 @@ class Funcionario extends Model
         $sql->bindValue(10, $f->getFuncEnd());
         $sql->execute();
 
-        $f->setFuncId($this->pdo->lastInsertId());
+        $f->setFuncId(Database::getInstance()->lastInsertId());
         return $f;
     }
 
@@ -202,7 +197,7 @@ class Funcionario extends Model
     {
         $array = [];
 
-        $sql = $this->pdo->query(
+        $sql = Database::getInstance()->query(
             "SELECT FUNC_ID, FUNC_NAME, FUNC_CARG, FUNC_CPF, FUNC_EMAIL FROM FUNCIONARIOS "
         );
 
@@ -210,7 +205,7 @@ class Funcionario extends Model
             $funcionarios = $sql->fetchAll();
 
             foreach ($funcionarios as $funcionario) {
-                $func = new Funcionario(Database::getInstance());
+                $func = new Funcionario();
                 $func->setFuncId($funcionario['FUNC_ID']);
                 $func->setFuncName($funcionario['FUNC_NAME']);
                 $func->setFuncCarg($funcionario['FUNC_CARG']);
