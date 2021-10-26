@@ -5,6 +5,7 @@ namespace src\controllers;
 use \core\Controller;
 use core\Database;
 use src\models\Funcionario;
+use src\models\Endereco;
 
 class FuncionarioController extends Controller
 {
@@ -51,6 +52,18 @@ class FuncionarioController extends Controller
         $funcUf = filter_input(INPUT_POST, 'FUNC_UF');
 
         if ($funcCpf && $funcPassHash) {
+            
+            $novoEndereco = new Endereco(Database::getInstance());
+            $novoEndereco->setEndLogr($funcEnd);
+            $novoEndereco->setEndNum($funcNum);
+            $novoEndereco->setEndCep($funcCep);
+            $novoEndereco->setEndDistric($funcDistric);
+            $novoEndereco->setEndCity($funcCity);
+            $novoEndereco->setEndUf($funcUf);
+            $novoEnd = $novoEndereco->inserirEndereco($novoEndereco);
+            
+            
+            
 
             $novoFuncionario = new Funcionario(Database::getInstance());
             $novoFuncionario->setFuncName($funcName);
@@ -62,12 +75,8 @@ class FuncionarioController extends Controller
             $novoFuncionario->setFuncAdmDate($funcAdmDate);
             $novoFuncionario->setFuncDmsDate($funcDmsDate);
             $novoFuncionario->setFuncPass($funcPassHash);
-            $novoFuncionario->setFuncEnd($funcEnd);
-            $novoFuncionario->setFuncNum($funcNum);
-            $novoFuncionario->setFuncCep($funcCep);
-            $novoFuncionario->setFuncDistric($funcDistric);
-            $novoFuncionario->setFuncCity($funcCity);
-            $novoFuncionario->setFuncUf($funcUf);
+            $novoFuncionario->setFuncEnd($novoEnd);
+            
 
             $data = $novoFuncionario->buscarFuncionario($novoFuncionario);
 

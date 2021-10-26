@@ -159,6 +159,7 @@ class Funcionario extends Model {
         $sql->bindValue(7, $f->getFuncAdmDate());
         $sql->bindValue(8, $f->getFuncDmsDate());
         $sql->bindValue(9, $f->getFuncPass());
+        $sql->bindValue(10, $f->getFuncEnd());
         $sql->execute();
 
         $f->setFuncId($this->pdo->lastInsertId());
