@@ -6,6 +6,8 @@ use \core\Controller;
 use core\Database;
 use src\models\Funcionario;
 use src\models\Endereco;
+use src\dao\FuncionarioDao;
+use src\dao\EnderecoDao;
 
 class FuncionarioController extends Controller
 {
@@ -15,7 +17,7 @@ class FuncionarioController extends Controller
     public function funcList()
     {
 
-        $funcionarioDao = new Funcionario(Database::getInstance());
+        $funcionarioDao = new FuncionarioDao(Database::getInstance());
         $array = $funcionarioDao->buscarTodos();
 
         $this->render('funclist', [
@@ -60,7 +62,13 @@ class FuncionarioController extends Controller
             $novoEndereco->setEndDistric($funcDistric);
             $novoEndereco->setEndCity($funcCity);
             $novoEndereco->setEndUf($funcUf);
-            $novoEnd = $novoEndereco->inserirEndereco($novoEndereco);
+
+            $novoEnd = $novoEndereco->buscarEndereco($novoEndereco);
+
+            if (empty($novoEnd)) {
+                $novoEnd = $novoEndereco->inserirEndereco($novoEndereco);
+            }
+
 
             $novoFuncionario = new Funcionario(Database::getInstance());
             $novoFuncionario->setFuncName($funcName);
@@ -79,16 +87,14 @@ class FuncionarioController extends Controller
 
             if (empty($data)) {
 
-                /*  $novoFuncionario->inserirFuncionario($novoFuncionario);
+                $novoFuncionario->inserirFuncionario($novoFuncionario);
 
                 $this->redirect('/funcionarios');
 
-                echo 'alert("Funcionário Cadastrado com Sucesso");';*/
+                echo 'alert("Funcionário Cadastrado com Sucesso");';
             }
         }
-        echo $novoEnd;
-        print_r($novoFuncionario);
-        /*
-        $this->redirect('/funcionarios',);*/
+
+        $this->redirect('/funcionarios',);
     }
 }
