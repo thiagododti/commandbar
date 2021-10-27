@@ -55,50 +55,55 @@ class FuncionarioController extends Controller
 
         if ($funcCpf && $funcPassHash) {
 
-            $novoEndereco = new Endereco();
-            $inserirEndereco = new EnderecoDao();
-            $novoFuncionario = new Funcionario();
-            $inserirFuncionario = new FuncionarioDao();
+            $endereco = new Endereco();
+            $enderedodao = new EnderecoDao();
+            $funcionario = new Funcionario();
+            $funcionariodao = new FuncionarioDao();
 
             /*RECEBER DADOS DO NAVEGADOR */
-            $novoEndereco->setEndLogr($funcEnd);
-            $novoEndereco->setEndNum($funcNum);
-            $novoEndereco->setEndCep($funcCep);
-            $novoEndereco->setEndDistric($funcDistric);
-            $novoEndereco->setEndCity($funcCity);
-            $novoEndereco->setEndUf($funcUf);
+            $endereco->setEndLogr($funcEnd);
+            $endereco->setEndNum($funcNum);
+            $endereco->setEndCep($funcCep);
+            $endereco->setEndDistric($funcDistric);
+            $endereco->setEndCity($funcCity);
+            $endereco->setEndUf($funcUf);
 
-            /* CONSULTAR SE O ENDEREÇO JA EXISTE*/
-            $novoEnd = $inserirEndereco->buscarEndereco($novoEndereco);
             /* INSERIR ENDEREÇO CASO NAO EXISTA NO BANCO DE DADOS */
-            if (empty($novoEnd)) {
-                $novoEnd = $inserirEndereco->inserirEndereco($novoEndereco);
+            $e = $enderedodao->buscarEndereco($endereco);
+            if (empty($e)) {
+                $enderedodao->inserirEndereco($endereco);
             }
-            
+
+            foreach ($e as $endereco) {
+                $endid = $endereco->getEndId();
+            }
+
             /* RECEBER DADOS DO FUNCIONARIO DO NAVEGADOR */
-            $novoFuncionario->setFuncName($funcName);
-            $novoFuncionario->setFuncSname($funcSname);
-            $novoFuncionario->setFuncCpf($funcCpf);
-            $novoFuncionario->setFuncEmail($funcEmail);
-            $novoFuncionario->setFuncSal($funcSal);
-            $novoFuncionario->setFuncCarg($funcCarg);
-            $novoFuncionario->setFuncAdmDate($funcAdmDate);
-            $novoFuncionario->setFuncDmsDate($funcDmsDate);
-            $novoFuncionario->setFuncPass($funcPassHash);
+            $funcionario->setFuncName($funcName);
+            $funcionario->setFuncSname($funcSname);
+            $funcionario->setFuncCpf($funcCpf);
+            $funcionario->setFuncEmail($funcEmail);
+            $funcionario->setFuncSal($funcSal);
+            $funcionario->setFuncCarg($funcCarg);
+            $funcionario->setFuncAdmDate($funcAdmDate);
+            $funcionario->setFuncDmsDate($funcDmsDate);
+            $funcionario->setFuncPass($funcPassHash);
+            $funcionario->setFuncEnd($endid);
 
             /* VERIFICAR SE O FUNCIONARIO EXISTE */
-            $data = $inserirFuncionario->buscarFuncionario($novoFuncionario);
+            $f = $funcionariodao->buscarFuncionario($funcionario);
 
             /* SE NAO EXISTIR O FUNCIONARIO É INSERIDO */
-            if (empty($data)) {
+            if (empty($f)) {
 
-                $inserirFuncionario->inserirFuncionario($novoFuncionario);
+                $funcionariodao->inserirFuncionario($funcionario);
 
                 $this->redirect('/funcionarios');
 
                 echo 'alert("Funcionário Cadastrado com Sucesso");';
             }
         }
+
         $this->redirect('/funcionarios',);
     }
 }

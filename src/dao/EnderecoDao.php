@@ -47,8 +47,8 @@ class EnderecoDao
 
             $endereco = array();
 
-            foreach ($lista as $f) {
-                $endereco[] = $this->listarEndereco($f);
+            foreach ($lista as $e) {
+                $endereco[] = $this->listarEndereco($e);
             }
             return $endereco;
         } catch (Exception $e) {
@@ -57,7 +57,7 @@ class EnderecoDao
     }
 
 
-    public function listarEndereco($end)
+    private function listarEndereco($end)
     {
         $endereco = new Endereco();
         $endereco->setEndId($end['END_ID']);

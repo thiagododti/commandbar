@@ -5,6 +5,7 @@ namespace src\dao;
 use core\Database;
 use Exception;
 use PDO;
+use src\models\Endereco;
 use src\models\Funcionario;
 
 class FuncionarioDao
@@ -12,6 +13,7 @@ class FuncionarioDao
     public function inserirFuncionario(Funcionario $f)
     {
         try {
+
             $sql = "INSERT INTO FUNCIONARIOS (FUNC_NAME, FUNC_SNAME, FUNC_CPF, FUNC_EMAIL, FUNC_SAL,
             FUNC_CARG, FUNC_ADMDATE, FUNC_DMSDATE, FUNC_PASS, END_ID) VALUE (?,?,?,?,?,?,?,?,?,?)";
 
@@ -28,8 +30,6 @@ class FuncionarioDao
             $stmt->bindValue(10, $f->getFuncEnd());
 
             return $stmt->execute();
-
-            
         } catch (Exception $e) {
             print "Erro ao Inserir Funcionario <br>" . $e . '<br>';
         }
@@ -110,5 +110,9 @@ class FuncionarioDao
         $funcionario->setFuncEmail($linha['FUNC_EMAIL']);
 
         return $funcionario;
+    }
+
+    public function atualizarEndereço(Endereco $end)
+    {
     }
 }

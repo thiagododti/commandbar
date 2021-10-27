@@ -138,6 +138,6 @@ class Funcionario extends Model
 
     function setFuncEnd($funcEnd)
     {
-        $this->funcId = $funcEnd;
+        $this->funcEnd = $funcEnd;
     }
 }
