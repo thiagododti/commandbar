@@ -28,6 +28,8 @@ class FuncionarioDao
             $stmt->bindValue(10, $f->getFuncEnd());
 
             return $stmt->execute();
+
+            
         } catch (Exception $e) {
             print "Erro ao Inserir Funcionario <br>" . $e . '<br>';
         }
@@ -58,7 +60,7 @@ class FuncionarioDao
             $stmt->bindValue(1, $cpf->getFuncCpf());
             $stmt->execute();
 
-            $lista = $stmt->fetch(PDO::FETCH_ASSOC);
+            $lista = $stmt->fetchAll(PDO::FETCH_ASSOC);
 
             $funcionario = array();
             foreach ($lista as $f) {

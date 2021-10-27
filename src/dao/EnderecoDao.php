@@ -43,7 +43,7 @@ class EnderecoDao
             $stmt->bindValue(2, $end->getEndNum());
             $stmt->execute();
 
-            $lista = $stmt->fetch(PDO::FETCH_ASSOC);
+            $lista = $stmt->fetchAll(PDO::FETCH_ASSOC);
 
             $endereco = array();
 
@@ -55,7 +55,6 @@ class EnderecoDao
             print "Erro ao buscar um endereço" . $e;
         }
     }
-
 
 
     public function listarEndereco($end)

@@ -74,7 +74,7 @@ class FuncionarioController extends Controller
             if (empty($novoEnd)) {
                 $novoEnd = $inserirEndereco->inserirEndereco($novoEndereco);
             }
-
+            
             /* RECEBER DADOS DO FUNCIONARIO DO NAVEGADOR */
             $novoFuncionario->setFuncName($funcName);
             $novoFuncionario->setFuncSname($funcSname);
@@ -85,7 +85,6 @@ class FuncionarioController extends Controller
             $novoFuncionario->setFuncAdmDate($funcAdmDate);
             $novoFuncionario->setFuncDmsDate($funcDmsDate);
             $novoFuncionario->setFuncPass($funcPassHash);
-            $novoFuncionario->setFuncEnd($novoEnd);
 
             /* VERIFICAR SE O FUNCIONARIO EXISTE */
             $data = $inserirFuncionario->buscarFuncionario($novoFuncionario);
@@ -100,7 +99,6 @@ class FuncionarioController extends Controller
                 echo 'alert("Funcionário Cadastrado com Sucesso");';
             }
         }
-
         $this->redirect('/funcionarios',);
     }
 }
