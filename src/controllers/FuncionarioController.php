@@ -55,7 +55,12 @@ class FuncionarioController extends Controller
 
         if ($funcCpf && $funcPassHash) {
 
-            $novoEndereco = new Endereco(Database::getInstance());
+            $novoEndereco = new Endereco();
+            $inserirEndereco = new EnderecoDao();
+            $novoFuncionario = new Funcionario();
+            $inserirFuncionario = new FuncionarioDao();
+
+            /*RECEBER DADOS DO NAVEGADOR */
             $novoEndereco->setEndLogr($funcEnd);
             $novoEndereco->setEndNum($funcNum);
             $novoEndereco->setEndCep($funcCep);
@@ -63,14 +68,14 @@ class FuncionarioController extends Controller
             $novoEndereco->setEndCity($funcCity);
             $novoEndereco->setEndUf($funcUf);
 
-            $novoEnd = $novoEndereco->buscarEndereco($novoEndereco);
-
+            /* CONSULTAR SE O ENDEREÇO JA EXISTE*/
+            $novoEnd = $inserirEndereco->buscarEndereco($novoEndereco);
+            /* INSERIR ENDEREÇO CASO NAO EXISTA NO BANCO DE DADOS */
             if (empty($novoEnd)) {
-                $novoEnd = $novoEndereco->inserirEndereco($novoEndereco);
+                $novoEnd = $inserirEndereco->inserirEndereco($novoEndereco);
             }
 
-
-            $novoFuncionario = new Funcionario(Database::getInstance());
+            /* RECEBER DADOS DO FUNCIONARIO DO NAVEGADOR */
             $novoFuncionario->setFuncName($funcName);
             $novoFuncionario->setFuncSname($funcSname);
             $novoFuncionario->setFuncCpf($funcCpf);
@@ -82,12 +87,13 @@ class FuncionarioController extends Controller
             $novoFuncionario->setFuncPass($funcPassHash);
             $novoFuncionario->setFuncEnd($novoEnd);
 
-            $data = $novoFuncionario->buscarFuncionario($novoFuncionario);
+            /* VERIFICAR SE O FUNCIONARIO EXISTE */
+            $data = $inserirFuncionario->buscarFuncionario($novoFuncionario);
 
-
+            /* SE NAO EXISTIR O FUNCIONARIO É INSERIDO */
             if (empty($data)) {
 
-                $novoFuncionario->inserirFuncionario($novoFuncionario);
+                $inserirFuncionario->inserirFuncionario($novoFuncionario);
 
                 $this->redirect('/funcionarios');
 

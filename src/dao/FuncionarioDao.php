@@ -64,6 +64,7 @@ class FuncionarioDao
             foreach ($lista as $f) {
                 $funcionario[] = $this->listarFuncionario($f);
             }
+            return $funcionario;
         } catch (Exception $e) {
             print "Erro ao buscar Funcionario <br>" . $e . '<br>';
         }
@@ -87,14 +88,14 @@ class FuncionarioDao
 
     private function listarFuncionarios($linha)
     {
-        $funcionario = new Funcionario();
-        $funcionario->setFuncId($linha['FUNC_ID']);
-        $funcionario->setFuncName($linha['FUNC_NAME']);
-        $funcionario->setFuncCarg($linha['FUNC_CARG']);
-        $funcionario->setFuncCpf($linha['FUNC_CPF']);
-        $funcionario->setFuncEmail($linha['FUNC_EMAIL']);
+        $funcionarios = new Funcionario();
+        $funcionarios->setFuncId($linha['FUNC_ID']);
+        $funcionarios->setFuncName($linha['FUNC_NAME']);
+        $funcionarios->setFuncCarg($linha['FUNC_CARG']);
+        $funcionarios->setFuncCpf($linha['FUNC_CPF']);
+        $funcionarios->setFuncEmail($linha['FUNC_EMAIL']);
 
-        return $funcionario;
+        return $funcionarios;
     }
 
     private function listarFuncionario($linha)
