@@ -44,7 +44,7 @@ class FuncionarioDao
 
             $listaFuncionario = array();
             foreach ($lista as $l) {
-                $listaFuncionario[] = $this->listarFuncionarios($l);
+                $listaFuncionario[] = $this->listarFuncionario($l);
             }
             return $listaFuncionario;
         } catch (Exception $e) {
@@ -88,7 +88,7 @@ class FuncionarioDao
         }
     }
 
-    private function listarFuncionarios($linha)
+    private function listarFuncionario($linha)
     {
         $funcionarios = new Funcionario();
         $funcionarios->setFuncId($linha['FUNC_ID']);
@@ -98,21 +98,5 @@ class FuncionarioDao
         $funcionarios->setFuncEmail($linha['FUNC_EMAIL']);
 
         return $funcionarios;
-    }
-
-    private function listarFuncionario($linha)
-    {
-        $funcionario = new Funcionario();
-        $funcionario->setFuncId($linha['FUNC_ID']);
-        $funcionario->setFuncName($linha['FUNC_NAME']);
-        $funcionario->setFuncCarg($linha['FUNC_CARG']);
-        $funcionario->setFuncCpf($linha['FUNC_CPF']);
-        $funcionario->setFuncEmail($linha['FUNC_EMAIL']);
-
-        return $funcionario;
-    }
-
-    public function atualizarEndereço(Endereco $end)
-    {
     }
 }

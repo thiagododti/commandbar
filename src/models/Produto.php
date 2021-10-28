@@ -2,11 +2,10 @@
 
 namespace src\models;
 
-use core\Database;
 use \core\Model;
-use PDO;
 
-class Produto extends Model {
+class Produto extends Model
+{
 
     private $prodId;
     private $prodStat;
@@ -16,60 +15,73 @@ class Produto extends Model {
     private $prodCateg;
     private $prodDesc;
 
-    function getProdId() {
+    function getProdId()
+    {
         return $this->prodId;
     }
 
-    function getProdStat() {
+    function getProdStat()
+    {
         return $this->prodStat;
     }
 
-    function getProdValor() {
+    function getProdValor()
+    {
         return $this->prodValor;
     }
 
-    function getProdQtd() {
+    function getProdQtd()
+    {
         return $this->prodQtd;
     }
 
-    function getProdMarca() {
+    function getProdMarca()
+    {
         return $this->prodMarca;
     }
 
-    function getProdCateg() {
+    function getProdCateg()
+    {
         return $this->prodCateg;
     }
 
-    function getProdDesc() {
+    function getProdDesc()
+    {
         return $this->prodDesc;
     }
 
-    function setProdId($prodId) {
+    function setProdId($prodId)
+    {
         $this->prodId = $prodId;
     }
 
-    function setProdStat($prodStat) {
+    function setProdStat($prodStat)
+    {
         $this->prodStat = $prodStat;
     }
 
-    function setProdValor($prodValor) {
+    function setProdValor($prodValor)
+    {
         $this->prodValor = $prodValor;
     }
 
-    function setProdQtd($prodQtd) {
+    function setProdQtd($prodQtd)
+    {
         $this->prodQtd = $prodQtd;
     }
 
-    function setProdMarca($prodMarca) {
+    function setProdMarca($prodMarca)
+    {
         $this->prodMarca = $prodMarca;
     }
 
-    function setProdCateg($prodCateg) {
+    function setProdCateg($prodCateg)
+    {
         $this->prodCateg = $prodCateg;
     }
 
-    function setProdDesc($prodDesc) {
+    function setProdDesc($prodDesc)
+    {
         $this->prodDesc = $prodDesc;
     }
-
 }
