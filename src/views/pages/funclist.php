@@ -48,14 +48,13 @@
     <div class="modal-dialog modal-xl">
         <div class="modal-content">
             <div class="modal-header">
-                <h5 class="modal-title" id="exampleModalLabel">Cadastro de Funcionario</h5>
+                <h3 class="modal-title" id="exampleModalLabel">Cadastro de Funcionário</h3>
                 <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
             </div>
             <div class="modal-body">
                 <div class="row justify-content-center">
                     <div class="col-11">
                         <br>
-                        <h2>Cadastro de Funcionário</h2>
                         <form class="row g-3" method="POST" action="<?= $base; ?>/funcionarios/cadastrar">
                             <div class="col-md-6">
                                 <label for="funcName" class="form-label">Nome</label>
