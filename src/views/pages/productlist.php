@@ -9,7 +9,7 @@
         </div>
         <div class="col">
 
-            <button type="button" class="btn btn-dark" data-bs-toggle="modal" data-bs-target="#exampleModal">
+            <button type="button" class="btn btn-dark" data-bs-toggle="modal" data-bs-target="#modalprod">
                 Cadastrar Produto
             </button>
 
@@ -34,7 +34,7 @@
 </div>
 
 <!-- Modal -->
-<div class="modal fade" id="exampleModal" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
+<div class="modal fade" id="modalprod" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
     <div class="modal-dialog modal-lg">
         <div class="modal-content">
             <div class="modal-header">
