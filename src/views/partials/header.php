@@ -41,6 +41,12 @@
 						</a>
 					</li>
 					<li class="nav-item">
+						<a align="center" class="nav-link link-dark" aria-current="page" href="<?= $base; ?>/fornecedores">
+							<img src="<?= $base ?>/assets/img/fornecedor.png" />
+							<p align="center">Fornecedor</p>
+						</a>
+					</li>
+					<li class="nav-item">
 						<a align="center" class="nav-link link-dark" aria-current="page" href="#">
 							<img src="<?= $base ?>/assets/img/grafico.png" />
 							<p align="center">Relátorios</p>

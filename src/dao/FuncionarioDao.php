@@ -5,7 +5,6 @@ namespace src\dao;
 use core\Database;
 use Exception;
 use PDO;
-use src\models\Endereco;
 use src\models\Funcionario;
 
 class FuncionarioDao

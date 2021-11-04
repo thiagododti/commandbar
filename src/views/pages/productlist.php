@@ -20,15 +20,27 @@
         <thead>
             <tr>
                 <th scope="col">#</th>
-                <th scope="col">Descrição</th>
-                <th scope="col">Quantidade</th>
-                <th scope="col">Categoria</th>
-                <th scope="col">Valor</th>
+                <th scope="col"><a class="text-decoration-none text-dark" href="<?= $base; ?>/produtos/Descricao">Descrição</a></th>
+                <th scope="col"><a class="text-decoration-none text-dark" href="<?= $base; ?>/produtos/Quantidade">Quantidade</a></th>
+                <th scope="col"><a class="text-decoration-none text-dark" href="<?= $base; ?>/produtos/Valor">Valor</a></th>
+                <th scope="col"><a class="text-decoration-none text-dark" href="<?= $base; ?>/produtos/Categoria">Categoria</a></th>
+                <th scope="col"><a class="text-decoration-none text-dark" href="<?= $base; ?>/produtos/Status">Status</a></th>
                 <th scope="col">#</th>
             </tr>
         </thead>
         <tbody>
+            <?php foreach ($produtos as $produto) : ?>
+                <tr>
+                    <td><?= $produto->getProdId(); ?></td>
+                    <td><?= $produto->getProdDesc(); ?></td>
+                    <td><?= $produto->getProdQtd(); ?></td>
+                    <td><?= $produto->getProdValor(); ?></td>
+                    <td><?= $produto->getProdCateg(); ?></td>
+                    <td><?= $produto->getProdStat(); ?></td>
+                    <td>...</td>
+                </tr>
 
+            <?php endforeach; ?>
         </tbody>
     </table>
 </div>
@@ -80,7 +92,7 @@
                             </div>
 
                             <div class="col-12">
-                                <button type="submit" class="btn btn-dark">Cadastrar</button>
+                                <button type="submit" class="btn btn-dark" name="novoproduto">Cadastrar</button>
                             </div>
                         </form>
                     </div>

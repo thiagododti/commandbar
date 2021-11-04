@@ -3,7 +3,6 @@
 namespace src\controllers;
 
 use \core\Controller;
-use core\Database;
 use src\models\Funcionario;
 use src\models\Endereco;
 use src\dao\FuncionarioDao;
@@ -17,13 +16,9 @@ class FuncionarioController extends Controller
     public function funcList()
     {
 
-        $funcionarioDao = new FuncionarioDao(Database::getInstance());
+        $funcionarioDao = new FuncionarioDao();
         $array = $funcionarioDao->buscarTodos();
-
-        $this->render('funclist', [
-
-            'funcionarios' => $array
-        ]);
+        $this->render('funclist', ['funcionarios' => $array]);
     }
 
     public function cadFunc()
