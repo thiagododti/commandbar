@@ -103,12 +103,12 @@
                                 <input type="password" class="form-control" id="funcPass2" name="FUNC_PASS">
                             </div>
                             <div class="col-md-8">
-                                <label for="funcEnd" class="form-label">Endereço</label>
-                                <input type="text" class="form-control" id="funcEnd" name="FUNC_END">
+                                <label for="fEnd" class="form-label">Endereço</label>
+                                <input type="text" class="form-control" id="fEnd" name="FUNC_END">
                             </div>
                             <div class="col-md-2">
-                                <label for="funcEnd" class="form-label">Numero</label>
-                                <input type="text" class="form-control" id="funcNum" name="FUNC_NUM">
+                                <label for="fEnd" class="form-label">Numero</label>
+                                <input type="text" class="form-control" id="fNum" name="FUNC_NUM">
                             </div>
                             <div class="col-md-2">
                                 <label for="funcCep" class="form-label">Cep</label>
@@ -119,16 +119,16 @@
                                 </div>
                             </div>
                             <div class="col-md-7">
-                                <label for="funcDistric" class="form-label">Bairro</label>
-                                <input type="text" class="form-control" id="funcDistric" name="FUNC_DISTRIC">
+                                <label for="fDistric" class="form-label">Bairro</label>
+                                <input type="text" class="form-control" id="fDistric" name="FUNC_DISTRIC">
                             </div>
                             <div class="col-md-4">
-                                <label for="funcCity" class="form-label">Cidade</label>
-                                <input type="text" class="form-control" id="funcCity" name="FUNC_CITY">
+                                <label for="fCity" class="form-label">Cidade</label>
+                                <input type="text" class="form-control" id="fCity" name="FUNC_CITY">
                             </div>
                             <div class="col-md-1">
-                                <label for="funcUf" class="form-label">UF</label>
-                                <input type="text" id="funcUf" class="form-control" name="FUNC_UF">
+                                <label for="fUf" class="form-label">UF</label>
+                                <input type="text" id="fUf" class="form-control" name="FUNC_UF">
                             </div>
                             <div class="col-12">
                                 <button type="submit" class="btn btn-dark" onclick="return validarSenha()">Cadastrar</button>

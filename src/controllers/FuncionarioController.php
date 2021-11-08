@@ -99,6 +99,6 @@ class FuncionarioController extends Controller
             }
         }
 
-        $this->redirect('/funcionarios',);
+        $this->redirect('/funcionarios');
     }
 }

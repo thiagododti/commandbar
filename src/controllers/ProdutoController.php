@@ -47,10 +47,7 @@ class ProdutoController extends Controller
         $this->render('productlist', ['produtos' => $array]);
     }
 
-    public function cadProd()
-    {
-        $this->render('cadprod');
-    }
+
 
     public function cadProdAdd()
     {

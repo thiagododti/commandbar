@@ -1,5 +1,5 @@
-/*CREATE SCHEMA commandbardb;
-USE commandbardb;*/
+CREATE SCHEMA commandbardb;
+USE commandbardb;
 
 
 CREATE TABLE ENDERECOS (
@@ -80,7 +80,8 @@ CONSTRAINT FK_ATENPROD FOREIGN KEY(PROD_ID) REFERENCES PRODUTOS (PROD_ID),
 CONSTRAINT FK_ATENCOM FOREIGN KEY(COM_ID) REFERENCES COMANDAS (COM_ID)
 );
 
-/*select * from enderecos;
+select * from enderecos;
+select * from fornecedores;
 select * from funcionarios;
 select * from produtos;
 SELECT * FROM FUNCIONARIOS WHERE FUNC_CPF = 03295277117;

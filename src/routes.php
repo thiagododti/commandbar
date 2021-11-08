@@ -20,7 +20,7 @@ $router->get('/produtos/Valor', 'ProdutoController@prodByValor');
 $router->get('/produtos/Categoria', 'ProdutoController@prodByCateg');
 $router->get('/produtos/Status', 'ProdutoController@prodByStat');
 
-$router->get('/produtos/cadastrar', 'ProdutoController@cadProd');
 $router->post('/produtos/cadastrar', 'ProdutoController@cadProdAdd');
 
 $router->get('/fornecedores', 'FornecedorController@fornList');
+$router->post('/fornecedores/cadastrar', 'FornecedorController@cadFornAdd');
