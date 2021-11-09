@@ -26,6 +26,8 @@
                 <th scope="col">Email</th>
                 <th scope="col">#</th>
             </tr>
+        </thead>
+        <tbody>
             <?php foreach ($funcionarios as $funcionario) : ?>
                 <tr>
                     <td><?= $funcionario->getFuncId(); ?></td>
@@ -37,9 +39,6 @@
                 </tr>
 
             <?php endforeach; ?>
-        </thead>
-        <tbody>
-
         </tbody>
     </table>
 </div>

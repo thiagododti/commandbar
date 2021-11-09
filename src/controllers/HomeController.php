@@ -11,9 +11,4 @@ class HomeController extends Controller
     {
         $this->render('mesas');
     }
-
-    public function mesas()
-    {
-        $this->render('mesas');
-    }
 }

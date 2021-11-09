@@ -148,11 +148,12 @@ class ProdutoDao
         $produto = new Produto();
         $produto->setProdId($lista['PROD_ID']);
         $produto->setProdDesc($lista['PROD_DESC']);
-        $produto->setProdQtd($lista['PROD_QTD']);
         $produto->setProdValor($lista['PROD_VALOR']);
         $produto->setProdMarca($lista['PROD_MARCA']);
         $produto->setProdCateg($lista['PROD_CATEG']);
         $produto->setProdStat($lista['PROD_STAT']);
+        
+        $produto->setProdQtd($lista['PROD_QTD']);
 
         return $produto;
     }

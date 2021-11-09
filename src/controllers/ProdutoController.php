@@ -3,7 +3,10 @@
 namespace src\controllers;
 
 use \core\Controller;
+use src\dao\AlmoxarifadoDao;
+use src\dao\FornecedorDao;
 use src\dao\ProdutoDao;
+use src\models\Almoxarifado;
 use src\models\Produto;
 
 class ProdutoController extends Controller
@@ -12,15 +15,22 @@ class ProdutoController extends Controller
     public function productList()
     {
         $produtoDao = new ProdutoDao();
+        $fornecedorDao = new FornecedorDao();
         $array = $produtoDao->buscarProdutos();
-        $this->render('productlist', ['produtos' => $array]);
-    }
+        $arrayforn = $fornecedorDao->buscarFornecedores();
 
+        $this->render('productlist', [
+            'produtos' => $array,
+            'fornecedores' => $arrayforn
+        ]);
+    }
     public function prodByDesc()
     {
         $produtoDao = new ProdutoDao();
         $array = $produtoDao->buscarProdutosByDesc();
-        $this->render('productlist', ['produtos' => $array]);
+        $this->render('productlist', [
+            'produtos' => $array
+        ]);
     }
     public function prodByQtd()
     {
@@ -47,8 +57,6 @@ class ProdutoController extends Controller
         $this->render('productlist', ['produtos' => $array]);
     }
 
-
-
     public function cadProdAdd()
     {
 
@@ -65,6 +73,25 @@ class ProdutoController extends Controller
             $produto->setProdCateg($novoProd['PROD_CATEG']);
 
             $produtodao->inserirProduto($produto);
+
+            $this->redirect('/produtos');
+        }
+    }
+
+    public function prodEntrada()
+    {
+        $almoxarifado = new Almoxarifado();
+        $almoxarifadoDao = new AlmoxarifadoDao();
+
+        $novaEntrada = filter_input_array(INPUT_POST);
+
+        if (isset($_POST['novaentrada'])) {
+            $almoxarifado->setAlmProd($novaEntrada['PROD_ID']);
+            $almoxarifado->setAlmForn($novaEntrada['FOR_ID']);
+            $almoxarifado->setQtFornecida($novaEntrada['QT_FORNECIDA']);
+            $almoxarifado->setDtEntrada($novaEntrada['DT_ENTRADA']);
+
+            $almoxarifadoDao->entradaProduto($almoxarifado);
 
             $this->redirect('/produtos');
         }

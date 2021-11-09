@@ -1,10 +1,10 @@
 <?php $render('header'); ?>
 <div class="col-11 justify-content-center">
     <div class="row h-50">
-        <a class="col h-100 btn btn-outline-dark" href="#">
+        <a class="col h-100 btn btn-outline-dark" href="<?= $base ?>/mesa/1">
             Mesa
         </a>
-        <a class="col h-100 btn btn-outline-primary" href="#">
+        <a class="col h-100 btn btn-outline-primary" href="<?= $base ?>/mesa/2">
             Mesa
         </a>
         <a class="col h-100 btn btn-outline-primary" href="#">

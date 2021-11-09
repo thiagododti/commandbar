@@ -7,7 +7,12 @@ $router = new Router();
 
 $router->get('/', 'HomeController@index');
 
-$router->get('/mesas', 'HomeController@mesas');
+
+
+
+$router->get('/mesas', 'ComandaController@mesas');
+$router->get('/mesa/{id}', 'ComandaController@mesa');
+
 
 $router->get('/funcionarios', 'FuncionarioController@funcList');
 
@@ -21,6 +26,8 @@ $router->get('/produtos/Categoria', 'ProdutoController@prodByCateg');
 $router->get('/produtos/Status', 'ProdutoController@prodByStat');
 
 $router->post('/produtos/cadastrar', 'ProdutoController@cadProdAdd');
+$router->post('/produtos/entrada', 'ProdutoController@prodEntrada');
+
 
 $router->get('/fornecedores', 'FornecedorController@fornList');
 $router->post('/fornecedores/cadastrar', 'FornecedorController@cadFornAdd');

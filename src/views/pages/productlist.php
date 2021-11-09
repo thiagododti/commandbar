@@ -4,15 +4,18 @@
     <br>
     <div class="row ">
 
-        <div class="col-10">
+        <div class="col-8">
             <h2>Produtos</h2>
         </div>
-        <div class="col">
-
+        <div class="col-2">
+            <button type="button" class="btn btn-dark" data-bs-toggle="modal" data-bs-target="#modalentrada">
+                Entrada de Produto
+            </button>
+        </div>
+        <div class="col-2">
             <button type="button" class="btn btn-dark" data-bs-toggle="modal" data-bs-target="#modalprod">
                 Cadastrar Produto
             </button>
-
         </div>
     </div>
 
@@ -45,7 +48,7 @@
     </table>
 </div>
 
-<!-- Modal -->
+<!-- Modal Cadastro de Produto -->
 <div class="modal fade" id="modalprod" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
     <div class="modal-dialog modal-lg">
         <div class="modal-content">
@@ -93,6 +96,60 @@
 
                             <div class="col-12">
                                 <button type="submit" class="btn btn-dark" name="novoproduto">Cadastrar</button>
+                            </div>
+                        </form>
+                    </div>
+                </div>
+            </div>
+            <div class="modal-footer">
+
+            </div>
+        </div>
+    </div>
+</div>
+
+<!-- Modal Entrada de Produto -->
+<div class="modal fade" id="modalentrada" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
+    <div class="modal-dialog modal-lg">
+        <div class="modal-content">
+            <div class="modal-header">
+                <h3 class="modal-title" id="exampleModalLabel">Entrada de produto</h3>
+                <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+            </div>
+            <div class="modal-body">
+                <div class="row justify-content-center">
+                    <div class="col-11">
+                        <br>
+
+                        <form class="row g-3" method="POST" action="<?= $base; ?>/produtos/entrada">
+                            <div class="col-md-12">
+                                <label for="prodId" class="form-label">Produto</label>
+                                <select type="text" class="form-select" id="prodId" name="PROD_ID">
+                                    <?php foreach ($produtos as $produto) : ?>
+                                        <option value="<?= $produto->getProdId(); ?>"><?= $produto->getProdDesc(); ?></option>
+                                    <?php endforeach; ?>
+                                </select>
+                            </div>
+                            <div class="col-md-12">
+                                <label for="forId" class="form-label">Fornecedor</label>
+                                <select type="text" class="form-select" id="forId" name="FOR_ID">
+                                    <?php foreach ($fornecedores as $fornecedor) : ?>
+                                        <option value="<?= $fornecedor->getForId(); ?>"><?= $fornecedor->getForRazao(); ?></option>
+                                    <?php endforeach; ?>
+                                </select>
+                            </div>
+
+                            <div class="col-md-4">
+                                <label for="qtForn" class="form-label">Quantidade</label>
+                                <input type="text" class="form-control" id="qtForn" name="QT_FORNECIDA">
+                            </div>
+                            <div class="col-md-5">
+                                <label for="dateEntrada" class="form-label">Data de entrada</label>
+                                <input type="date" class="form-control" id="dateEntrada" name="DT_ENTRADA">
+                            </div>
+
+                            <div class="col-12">
+                                <button type="submit" class="btn btn-dark" name="novaentrada">Concluir</button>
                             </div>
                         </form>
                     </div>
