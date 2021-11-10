@@ -3,6 +3,7 @@
 namespace src\controllers;
 
 use \core\Controller;
+use src\dao\ProdutoDao;
 
 class ComandaController extends Controller
 {
@@ -14,7 +15,11 @@ class ComandaController extends Controller
 
     public function mesa($idMesa)
     {
-        
-        $this->render('mesa', ['numMesa' => $idMesa]);
+        $produtoDao = new ProdutoDao();
+        $array = $produtoDao->buscarProdutos();
+        $this->render('mesa', [
+            'produtos' => $array,
+            'numMesa' => $idMesa
+        ]);
     }
 }
