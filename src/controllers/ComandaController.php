@@ -3,7 +3,9 @@
 namespace src\controllers;
 
 use \core\Controller;
+use src\dao\ComandaDao;
 use src\dao\ProdutoDao;
+use src\models\Comanda;
 
 class ComandaController extends Controller
 {
@@ -15,11 +17,19 @@ class ComandaController extends Controller
 
     public function mesa($idMesa)
     {
-        $produtoDao = new ProdutoDao();
+        $comandaDao = new ComandaDao();
+        $comanda = new Comanda();
+
+        $comanda->setComMesa($idMesa);
+        $comandaAberta = $comandaDao->checarMesaAberta($comanda);
+
+        if (empty($comandaAberta)) {
+        }
+        /*$produtoDao = new ProdutoDao();
         $array = $produtoDao->buscarProdutos();
         $this->render('mesa', [
             'produtos' => $array,
             'numMesa' => $idMesa
-        ]);
+        ]);*/
     }
 }

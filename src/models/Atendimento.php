@@ -2,65 +2,64 @@
 
 namespace src\models;
 
-use core\Database;
 use \core\Model;
-use PDO;
 
-class Atendimento extends Model {
+class Atendimento extends Model
+{
 
-    private $mesId;
-    private $numMesa;
+    private $ateId;
     private $qtProd;
     private $vlProd;
     private $mesProd;
     private $mesCom;
 
-    function getMesId() {
-        return $this->mesId;
+    function getAteId()
+    {
+        return $this->ateId;
     }
 
-    function getNumMesa() {
-        return $this->numMesa;
-    }
-
-    function getQtProd() {
+    function getQtProd()
+    {
         return $this->qtProd;
     }
 
-    function getVlProd() {
+    function getVlProd()
+    {
         return $this->vlProd;
     }
 
-    function getMesProd() {
+    function getMesProd()
+    {
         return $this->mesProd;
     }
 
-    function getMesCom() {
+    function getMesCom()
+    {
         return $this->mesCom;
     }
 
-    function setMesId($mesId) {
-        $this->mesId = $mesId;
+    function setAteId($ateId)
+    {
+        $this->ateId = $ateId;
     }
 
-    function setNumMesa($numMesa) {
-        $this->numMesa = $numMesa;
-    }
-
-    function setQtProd($qtProd) {
+    function setQtProd($qtProd)
+    {
         $this->qtProd = $qtProd;
     }
 
-    function setVlProd($vlProd) {
+    function setVlProd($vlProd)
+    {
         $this->vlProd = $vlProd;
     }
 
-    function setMesProd($mesProd) {
+    function setMesProd($mesProd)
+    {
         $this->mesProd = $mesProd;
     }
 
-    function setMesCom($mesCom) {
+    function setMesCom($mesCom)
+    {
         $this->mesCom = $mesCom;
     }
-
 }

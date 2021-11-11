@@ -2,11 +2,10 @@
 
 namespace src\models;
 
-use core\Database;
 use \core\Model;
-use PDO;
 
-class Comanda extends Model {
+class Comanda extends Model
+{
 
     private $comId;
     private $comPag;
@@ -15,61 +14,94 @@ class Comanda extends Model {
     private $comData;
     private $comVlGarc;
     private $comFunc;
+    private $comStatus;
+    private $comMesa;
 
-    function getComId() {
+    function getComMesa()
+    {
+        return $this->comMesa;
+    }
+    function setComMesa($comMesa)
+    {
+        $this->comMesa = $comMesa;
+    }
+
+    function getComStatus()
+    {
+        return $this->comStatus;
+    }
+    function setComStatus($comStatus)
+    {
+        $this->comStatus = $comStatus;
+    }
+
+    function getComId()
+    {
         return $this->comId;
     }
 
-    function getComPag() {
+    function getComPag()
+    {
         return $this->comPag;
     }
 
-    function getComTotal() {
+    function getComTotal()
+    {
         return $this->comTotal;
     }
 
-    function getComCpf() {
+    function getComCpf()
+    {
         return $this->comCpf;
     }
 
-    function getComData() {
+    function getComData()
+    {
         return $this->comData;
     }
 
-    function getComVlGarc() {
+    function getComVlGarc()
+    {
         return $this->comVlGarc;
     }
 
-    function getComFunc() {
+    function getComFunc()
+    {
         return $this->comFunc;
     }
 
-    function setComId($comId) {
+    function setComId($comId)
+    {
         $this->comId = $comId;
     }
 
-    function setComPag($comPag) {
+    function setComPag($comPag)
+    {
         $this->comPag = $comPag;
     }
 
-    function setComTotal($comTotal) {
+    function setComTotal($comTotal)
+    {
         $this->comTotal = $comTotal;
     }
 
-    function setComCpf($comCpf) {
+    function setComCpf($comCpf)
+    {
         $this->comCpf = $comCpf;
     }
 
-    function setComData($comData) {
+    function setComData($comData)
+    {
         $this->comData = $comData;
     }
 
-    function setComVlGarc($comVlGarc) {
+    function setComVlGarc($comVlGarc)
+    {
         $this->comVlGarc = $comVlGarc;
     }
 
-    function setComFunc($comFunc) {
+    function setComFunc($comFunc)
+    {
         $this->comFunc = $comFunc;
     }
-
 }
