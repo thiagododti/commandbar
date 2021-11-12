@@ -17,19 +17,23 @@ class ComandaController extends Controller
 
     public function mesa($idMesa)
     {
+
         $comandaDao = new ComandaDao();
         $comanda = new Comanda();
 
-        $comanda->setComMesa($idMesa);
+        $comanda->setComMesa($idMesa['id']);
         $comandaAberta = $comandaDao->checarMesaAberta($comanda);
 
+
         if (empty($comandaAberta)) {
+            $this->render('mesas');
+        } else {
+            $produtoDao = new ProdutoDao();
+            $array = $produtoDao->buscarProdutos();
+            $this->render('mesa', [
+                'produtos' => $array,
+                'numMesa' => $idMesa
+            ]);
         }
-        /*$produtoDao = new ProdutoDao();
-        $array = $produtoDao->buscarProdutos();
-        $this->render('mesa', [
-            'produtos' => $array,
-            'numMesa' => $idMesa
-        ]);*/
     }
 }

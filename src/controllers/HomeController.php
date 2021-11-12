@@ -9,6 +9,9 @@ class HomeController extends Controller
 
     public function index()
     {
-        $this->render('mesas');
+        $resultado = false;
+        $this->render('mesas', [
+            'comando' => $resultado
+        ]);
     }
 }

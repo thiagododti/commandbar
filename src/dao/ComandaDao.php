@@ -15,9 +15,10 @@ class ComandaDao
         try {
 
 
-            $sql = "SELECT * FROM COMANDAS WHERE COM_MESA = ? AND COM_SATUS =  ABERTA";
+            $sql = "SELECT * FROM COMANDAS WHERE COM_MESA = ? AND COM_STATUS = ?";
             $stmt = Database::getInstance()->prepare($sql);
             $stmt->bindValue(1, $c->getComMesa());
+            $stmt->bindValue(2, "ABERTA");
             $stmt->execute();
 
             $lista = $stmt->fetchAll(PDO::FETCH_ASSOC);
