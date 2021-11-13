@@ -12,7 +12,18 @@ class ComandaController extends Controller
 
     public function mesas()
     {
+
+        $comandaDao = new ComandaDao();
+        $comanda = new Comanda();
+        $mesas = array();
+
         $this->render('mesas');
+
+        /*
+        for ($i = 1; $i <= 50; $i++) {
+            $statusMesa = $comandaDao->buscarMesa($i);
+            $mesa[$i] = $statusMesa->getComStatus();
+        }*/
     }
 
     public function mesa($idMesa)
@@ -22,11 +33,16 @@ class ComandaController extends Controller
         $comanda = new Comanda();
 
         $comanda->setComMesa($idMesa['id']);
-        $comandaAberta = $comandaDao->checarMesaAberta($comanda);
+        $comandaAberta = $comandaDao->buscarMesa($comanda);
 
 
         if (empty($comandaAberta)) {
-            $this->render('mesas');
+            $produtoDao = new ProdutoDao();
+            $array = $produtoDao->buscarProdutos();
+            $this->render('mesa', [
+                'produtos' => $array,
+                'numMesa' => $idMesa
+            ]);
         } else {
             $produtoDao = new ProdutoDao();
             $array = $produtoDao->buscarProdutos();

@@ -10,7 +10,7 @@ use src\models\Comanda;
 class ComandaDao
 {
 
-    public function checarMesaAberta(Comanda $c)
+    public function buscarMesa(Comanda $c)
     {
         try {
 

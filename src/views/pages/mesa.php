@@ -40,14 +40,13 @@
 
         <div class="col">
             <br>
+            <h2>Status:</h2>
             <h1>Numero da Mesa: <?php echo $numMesa['id']; ?></h1>
             <h2>Comanda N°: </h2>
             <br>
             <br>
             <br>
             <h2>Valor Produtos: </h2>
-            
-
         </div>
     </div>
 
