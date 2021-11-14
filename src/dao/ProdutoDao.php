@@ -48,6 +48,26 @@ class ProdutoDao
             print "Erro ao Buscar Produto <br>" . $e;
         }
     }
+    public function buscarProduto(Produto $p)
+    {
+
+        try {
+            $sql = "SELECT * FROM PRODUTOS WHERE PROD_ID = ?";
+            $stmt = Database::getInstance()->query($sql);
+            $stmt->bindValue(1, $p->getProdId());
+            $stmt->execute();
+
+            $lista = $stmt->fetchAll(PDO::FETCH_ASSOC);
+
+            $listarprodutos = array();
+            foreach ($lista as $l) {
+                $listarprodutos[] = $this->listarProdutos($l);
+            }
+            return $listarprodutos;
+        } catch (Exception $e) {
+            print "Erro ao Buscar Produto <br>" . $e;
+        }
+    }
 
     public function buscarProdutosByDesc()
     {
@@ -67,6 +87,9 @@ class ProdutoDao
             print "Erro ao Buscar Produto <br>" . $e;
         }
     }
+
+
+
     public function buscarProdutosByQtd()
     {
         try {
@@ -152,7 +175,7 @@ class ProdutoDao
         $produto->setProdMarca($lista['PROD_MARCA']);
         $produto->setProdCateg($lista['PROD_CATEG']);
         $produto->setProdStat($lista['PROD_STAT']);
-        
+
         $produto->setProdQtd($lista['PROD_QTD']);
 
         return $produto;

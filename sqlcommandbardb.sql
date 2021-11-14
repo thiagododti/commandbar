@@ -97,6 +97,7 @@ SELECT END_ID FROM ENDERECOS WHERE END_CEP = 72016180 AND END_NUM = 18;
 
 delete FROM comandas where COM_ID = 1;
 delete FROM enderecos where END_ID = 2;
+delete From almoxarifados where EST_ID = 2;
 
 INSERT INTO FUNCIONARIOS (FUNC_NAME, FUNC_SNAME, FUNC_CPF, FUNC_PASS,FUNC_CARG, FUNC_EMAIL, FUNC_SAL, FUNC_ADMDATE, END_ID)  
 VALUES ('administrador','adm',11111111111,'$2y$10$1LaWiNz3mhJylVqLqICAuugfWBcF05vZPrYAULD07sUTE8xR0OuBm','gerente','adm@adm.com.br',1000.00,'2000-01-01',1);

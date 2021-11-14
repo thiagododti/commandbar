@@ -19,7 +19,15 @@ class AlmoxarifadoDao
             $stmt->bindValue(3, $a->getAlmForn());
             $stmt->bindValue(4, $a->getAlmProd());
 
-            return $stmt->execute();
+
+
+            $sql1 = "UPDATE PRODUTOS SET PROD_QTD = ? WHERE PROD_ID = ?";
+            $stmt1 = Database::getInstance()->prepare($sql1);
+            $stmt1->bindValue(1, $a->getQtFornecida());
+            $stmt1->bindValue(2, $a->getAlmProd());
+
+            $stmt->execute();
+            $stmt1->execute();
         } catch (Exception $e) {
             print "Erro ao dar entrada no produto <br>" . $e . '<br>';
         }

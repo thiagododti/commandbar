@@ -31,3 +31,8 @@ $router->post('/produtos/entrada', 'ProdutoController@prodEntrada');
 
 $router->get('/fornecedores', 'FornecedorController@fornList');
 $router->post('/fornecedores/cadastrar', 'FornecedorController@cadFornAdd');
+
+$router->post('/mesas/nova/mesa', 'ComandaController@abrirMesa');
+
+$router->post('/mesa/novo/produto', 'AtendimentoController@novoProdutoMesa');
+$router->get('/retirar/produto/{id}', 'AtendimentoController@retirarProdutoComanda');
