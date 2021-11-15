@@ -45,6 +45,25 @@ class FornecedorDao
             print "Erro ao buscar Fornecedor <br>" . $e . '<br>';
         }
     }
+    public function buscarFornecedorId($f)
+    {
+        try {
+            $sql = "SELECT * FROM FORNECEDORES WHERE FOR_ID = ?";
+            $stmt = Database::getInstance()->prepare($sql);
+            $stmt->bindValue(1, $f);
+            $stmt->execute();
+
+            $lista = $stmt->fetchAll(PDO::FETCH_ASSOC);
+
+            $fornecedor = array();
+            foreach ($lista as $f) {
+                $fornecedor[] = $this->listarFornecedor($f);
+            }
+            return $fornecedor;
+        } catch (Exception $e) {
+            print "Erro ao buscar Fornecedor <br>" . $e . '<br>';
+        }
+    }
 
     public function inserirFornecedor(Fornecedor $f)
     {

@@ -16,6 +16,7 @@
 			<img src="<?= $base; ?>/assets/img/loja.png" alt="" class="d-inline-block align-text-block">
 			Command Bar | Gerenciamento do estabelecimento
 		</a>
+		<button type="button" class="btn btn-light">Sair</button>
 	</nav>
 	<div class="container-fluid">
 
@@ -46,11 +47,8 @@
 							<p align="center">Fornecedor</p>
 						</a>
 					</li>
-					<li class="nav-item">
-						<a align="center" class="nav-link link-dark" aria-current="page" href="#">
-							<img src="<?= $base ?>/assets/img/grafico.png" />
-							<p align="center">Relátorios</p>
-						</a>
-					</li>
+					<br>
+					<br><br><br><br>
+
 				</ul>
 			</div>

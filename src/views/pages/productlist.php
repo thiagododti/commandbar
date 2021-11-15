@@ -4,7 +4,7 @@
     <br>
     <div class="row ">
 
-        <div class="col-8">
+        <div class="col-6">
             <h2>Produtos</h2>
         </div>
         <div class="col-2">
@@ -33,7 +33,6 @@
                 <th scope="col"><a class="text-decoration-none text-dark" href="<?= $base; ?>/produtos/Valor">Valor</a></th>
                 <th scope="col"><a class="text-decoration-none text-dark" href="<?= $base; ?>/produtos/Categoria">Categoria</a></th>
                 <th scope="col"><a class="text-decoration-none text-dark" href="<?= $base; ?>/produtos/Status">Status</a></th>
-                <th scope="col">#</th>
             </tr>
         </thead>
         <tbody>
@@ -45,7 +44,6 @@
                     <td><?= $produto->getProdValor(); ?></td>
                     <td><?= $produto->getProdCateg(); ?></td>
                     <td><?= $produto->getProdStat(); ?></td>
-                    <td>...</td>
                 </tr>
 
             <?php endforeach; ?>
@@ -166,5 +164,7 @@
         </div>
     </div>
 </div>
+
+
 
 <?php $render('footer'); ?>

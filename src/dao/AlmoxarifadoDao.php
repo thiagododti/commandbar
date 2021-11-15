@@ -33,6 +33,27 @@ class AlmoxarifadoDao
         }
     }
 
+    public function cancelarEntradaId($id, $qtd, $eId)
+    {
+        try {
+            $sql = "UPDATE PRODUTOS SET PROD_QTD = PROD_QTD - ? WHERE PROD_ID = ?";
+            $stmt = Database::getInstance()->prepare($sql);
+            $stmt->bindValue(1, $qtd);
+            $stmt->bindValue(2, $id);
+
+            $sql1 = "DELETE FROM ALMOXARIFADOS WHERE EST_ID = ?";
+            $stmt1 = Database::getInstance()->prepare($sql1);
+            $stmt1->bindValue(1, $eId);
+
+
+            $stmt->execute();
+            $stmt1->execute();
+        } catch (Exception $e) {
+            print "Erro ao dar entrada no produto <br>" . $e . '<br>';
+        }
+    }
+
+
     public function buscarAlmoxarifados()
     {
         try {
@@ -44,11 +65,31 @@ class AlmoxarifadoDao
 
             $listarAlmoxarifados = array();
             foreach ($lista as $l) {
-                $listarAlmoxarifados[] = $this->listarAlmoxarifado($lista);
+                $listarAlmoxarifados[] = $this->listarAlmoxarifado($l);
             }
             return $listarAlmoxarifados;
         } catch (Exception $e) {
             print "Erro ao Buscar Atendimentos <br>" . $e;
+        }
+    }
+
+    public function buscarAlmoxarifadosId($a)
+    {
+        try {
+            $sql = "SELECT * FROM ALMOXARIFADOS WHERE EST_ID = ?";
+            $stmt = Database::getInstance()->prepare($sql);
+            $stmt->bindValue(1, $a);
+            $stmt->execute();
+
+            $lista = $stmt->fetchAll(PDO::FETCH_ASSOC);
+
+            $listarAlmoxarifado = array();
+            foreach ($lista as $l) {
+                $listarAlmoxarifado[] = $this->listarAlmoxarifado($l);
+            }
+            return $listarAlmoxarifado;
+        } catch (Exception $e) {
+            print "Erro ao Buscar Produto <br>" . $e;
         }
     }
 

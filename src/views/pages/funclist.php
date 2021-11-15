@@ -24,7 +24,7 @@
                 <th scope="col">Cargo</th>
                 <th scope="col">CPF</th>
                 <th scope="col">Email</th>
-                <th scope="col">#</th>
+
             </tr>
         </thead>
         <tbody>
@@ -35,7 +35,6 @@
                     <td><?= $funcionario->getFuncCarg(); ?></td>
                     <td><?= $funcionario->getFuncCpf(); ?></td>
                     <td><?= $funcionario->getFuncEmail(); ?></td>
-                    <td>...</td>
                 </tr>
 
             <?php endforeach; ?>

@@ -18,7 +18,9 @@ class FuncionarioController extends Controller
 
         $funcionarioDao = new FuncionarioDao();
         $array = $funcionarioDao->buscarTodos();
-        $this->render('funclist', ['funcionarios' => $array]);
+        $this->render('funclist', [
+            'funcionarios' => $array
+        ]);
     }
 
     public function cadFunc()

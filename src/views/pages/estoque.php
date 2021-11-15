@@ -1,10 +1,16 @@
 <?php
 
+use src\dao\FornecedorDao;
 use src\dao\ProdutoDao;
 use src\models\Produto;
 
 $render('header'); ?>
 <div class="col-11">
+    <script type="text/javascript">
+        window.<?= $alerta ?> = function() {
+            alert("Não foi possivel cancelar a entrada, verifique a quantidade disponivel");
+        }
+    </script>
 
     <br>
     <div class="row ">
@@ -24,16 +30,21 @@ $render('header'); ?>
                 <?php foreach ($almoxarifados as $almoxarifado) : ?>
                     <tr>
                         <td><?= $almoxarifado->getEstId(); ?></td>
-                        <td><?= $prod = $almoxarifado->getAlmProd();
+                        <td><?= $produto = $almoxarifado->getAlmProd();
                             $produtoDao = new ProdutoDao();
-                            $produto = $produtoDao->buscarProdutoId($prod);
-                            foreach ($produto as $p);
-                            echo $p->getProdDesc();
-                            ?></td>
+                            $pId = $produtoDao->buscarProdutoId($produto);
+                            foreach ($pId as $p);
+                            echo $p->getProdDesc(); ?></td>
                         <td><?= $almoxarifado->getQtFornecida(); ?></td>
                         <td><?= $almoxarifado->getDtEntrada(); ?></td>
-                        <td><?= $almoxarifado->getAlmForn(); ?></td>
-                        <td>...</td>
+                        <td><?= $fornecedor = $almoxarifado->getAlmForn();
+                            $fornecedorDao = new FornecedorDao();
+                            $fId = $fornecedorDao->buscarFornecedorId($fornecedor);
+                            foreach ($fId as $f);
+                            echo $f->getForRazao();
+                            ?></td>
+                        <td><a href="<?= $base; ?>/cancelar/entrada/<?= $almoxarifado->getEstId(); ?>">
+                                <img src="<?= $base ?>/assets/img/botaox.png" /></a></td>
                     </tr>
 
                 <?php endforeach; ?>

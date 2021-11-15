@@ -25,6 +25,7 @@ class AtendimentoController extends Controller
         $novoProd = filter_input_array(INPUT_POST);
 
         if (isset($_POST['novacompra'])) {
+            
             $produto->setProdId($novoProd['PROD_ID']);
             $qtProduto = $produtoDao->buscarProdutos($produto);
             foreach ($qtProduto as $prod);

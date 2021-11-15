@@ -50,7 +50,8 @@ $render('header'); ?>
                                 ?></td>
                             <td><?= $atendimento->getQtProd(); ?></td>
                             <td><?= $atendimento->getVlProd(); ?></td>
-                            <td><a href="<?= $base; ?>/retirar/produto/<?= $atendimento->getAteId(); ?>">Excluir?</a></td>
+                            <td><a href="<?= $base; ?>/retirar/produto/<?= $atendimento->getAteId(); ?>">
+                                    <img src="<?= $base ?>/assets/img/botaox.png" /></a></td>
                         </tr>
 
                     <?php endforeach; ?>
