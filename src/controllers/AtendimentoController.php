@@ -41,12 +41,9 @@ class AtendimentoController extends Controller
 
                 $comanda = new Comanda();
                 $comandaDao = new ComandaDao();
-                $comanda->setComMesa($atendimento->getMesCom());
-                $comanda->setComStatus("ABERTA");
-                $buscarMesa = $comandaDao->buscarMesa($comanda);
+                $comanda->setComId($novoProd['COM_ID']);
+                $buscarMesa = $comandaDao->buscarComanda($comanda);
                 foreach ($buscarMesa as $mesa);
-
-
                 $this->redirect('/mesa/' . $mesa->getComMesa());
             }
         }

@@ -96,4 +96,15 @@ class ProdutoController extends Controller
             $this->redirect('/produtos');
         }
     }
+
+    public function relatorioAlmoxarifado()
+    {
+
+        $almoxarifadoDao = new AlmoxarifadoDao();
+        $relAlm = $almoxarifadoDao->buscarAlmoxarifados();
+
+        $this->render('/estoque', [
+            'almoxarifados' => $relAlm
+        ]);
+    }
 }

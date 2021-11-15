@@ -70,6 +70,25 @@ class FuncionarioDao
             print "Erro ao buscar Funcionario <br>" . $e . '<br>';
         }
     }
+    public function buscarFuncionarioId($id)
+    {
+        try {
+            $sql = "SELECT * FROM FUNCIONARIOS WHERE FUNC_ID = ?";
+            $stmt = Database::getInstance()->prepare($sql);
+            $stmt->bindValue(1, $id);
+            $stmt->execute();
+
+            $lista = $stmt->fetchAll(PDO::FETCH_ASSOC);
+
+            $funcionario = array();
+            foreach ($lista as $f) {
+                $funcionario[] = $this->listarFuncionario($f);
+            }
+            return $funcionario;
+        } catch (Exception $e) {
+            print "Erro ao buscar Funcionario <br>" . $e . '<br>';
+        }
+    }
 
     public function atualizarFuncionario(Funcionario $f)
     {

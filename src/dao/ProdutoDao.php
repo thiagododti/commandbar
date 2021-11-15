@@ -53,8 +53,28 @@ class ProdutoDao
 
         try {
             $sql = "SELECT * FROM PRODUTOS WHERE PROD_ID = ?";
-            $stmt = Database::getInstance()->query($sql);
+            $stmt = Database::getInstance()->prepare($sql);
             $stmt->bindValue(1, $p->getProdId());
+            $stmt->execute();
+
+            $lista = $stmt->fetchAll(PDO::FETCH_ASSOC);
+
+            $listarprodutos = array();
+            foreach ($lista as $l) {
+                $listarprodutos[] = $this->listarProdutos($l);
+            }
+            return $listarprodutos;
+        } catch (Exception $e) {
+            print "Erro ao Buscar Produto <br>" . $e;
+        }
+    }
+
+    public function buscarProdutoId($p)
+    {
+        try {
+            $sql = "SELECT * FROM PRODUTOS WHERE PROD_ID = ?";
+            $stmt = Database::getInstance()->prepare($sql);
+            $stmt->bindValue(1, $p);
             $stmt->execute();
 
             $lista = $stmt->fetchAll(PDO::FETCH_ASSOC);

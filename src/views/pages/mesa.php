@@ -1,4 +1,9 @@
-<?php $render('header'); ?>
+<?php
+
+use src\dao\FuncionarioDao;
+use src\dao\ProdutoDao;
+
+$render('header'); ?>
 
 
 
@@ -37,7 +42,12 @@
                     <?php foreach ($atendimentos as $atendimento) : ?>
                         <tr>
                             <td><?= $atendimento->getAteId(); ?></td>
-                            <td><?= $atendimento->getMesProd(); ?></td>
+                            <td><?= $prodId = $atendimento->getMesProd();
+                                $produtoDao = new ProdutoDao();
+                                $pId = $produtoDao->buscarProdutoId($prodId);
+                                foreach ($pId as $p);
+                                echo $p->getProdDesc();
+                                ?></td>
                             <td><?= $atendimento->getQtProd(); ?></td>
                             <td><?= $atendimento->getVlProd(); ?></td>
                             <td><a href="<?= $base; ?>/retirar/produto/<?= $atendimento->getAteId(); ?>">Excluir?</a></td>
@@ -56,6 +66,12 @@
             <h1>Numero da Mesa: <?php echo $mesa->getComMesa(); ?></h1>
             <h2>Comanda N°: <?php echo $mesa->getComId(); ?></h2>
             <br>
+            <h2>Atendente: <?php $idFunc = $mesa->getComFunc();
+                            $funcionarioDao = new FuncionarioDao();
+                            $func = $funcionarioDao->buscarFuncionarioId($idFunc);
+                            foreach ($func as $f);
+                            echo $f->getFuncName();
+                            ?></h2>
             <br>
             <br><br><br><br><br>
             <h2>Valor Produtos: <?php echo $mesa->getComTotal(); ?></h2>
@@ -115,15 +131,29 @@
                 <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
             </div>
             <div class="modal-body">
-                <form class="row g-3" method="POST" action="<?= $base; ?>/produtos/entrada">
-                    <div class="col-md-4">
+                <form class="row g-3" method="POST" action="<?= $base; ?>/mesa/fechar">
+                    <div class="col-md-7">
                         <label for="qtForn" class="form-label">CPF</label>
-                        <input type="text" class="form-control" id="qtForn" name="QT_PEDIDO">
+                        <input type="text" class="form-control" id="qtForn" name="COM_CPF">
                     </div>
+                    <div class="col-md-5">
+                        <label for="funcAdmDate" class="form-label">Data de Atendimento</label>
+                        <input type="date" class="form-control" id="funcAdmDate" name="COM_DATE">
+                    </div>
+                    <div class="custom-control custom-radio">
+                        <input type="radio" id="customRadio1" name="PAG_COMISS" value="sim" class="custom-control-input">
+                        <label class="custom-control-label" for="customRadio1">Pagar comissão do garçon</label>
+                    </div>
+                    <div class="custom-control custom-radio">
+                        <input type="radio" id="customRadio2" name="PAG_COMISS" value="nao" class="custom-control-input">
+                        <label class="custom-control-label" for="customRadio2">Não pagar comissão do garçon</label>
+                    </div>
+                    <input type="hidden" value="FECHADA" name="COM_STATUS">
+                    <input type="hidden" value="<?= $mesa->getComId(); ?>" name="COM_ID">
 
                     <div class="col-md-12">
                         <label for="prodId" class="form-label">Forma de Pagamento</label>
-                        <select type="text" class="form-select" id="prodId" name="PROD_ID">
+                        <select type="text" class="form-select" id="prodId" name="COM_PAG">
                             <option value="Dinheiro">Dinheiro</option>
                             <option value="Cartão de Crédito">Cartão de Cédito</option>
                             <option value="Cartão de Débito">Cartão de Débito</option>
@@ -131,7 +161,7 @@
                     </div>
 
                     <div class="col-12">
-                        <button type="submit" class="btn btn-dark" name="novacompra">Fechar</button>
+                        <button type="submit" class="btn btn-dark" name="fecharcomanda">Fechar</button>
                     </div>
                 </form>
             </div>

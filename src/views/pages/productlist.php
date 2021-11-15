@@ -8,6 +8,11 @@
             <h2>Produtos</h2>
         </div>
         <div class="col-2">
+            <a href="<?= $base ?>/lista/entradas"><button type="button" class="btn btn-dark">
+                    Relatorio de Entradas
+                </button></a>
+        </div>
+        <div class=" col-2">
             <button type="button" class="btn btn-dark" data-bs-toggle="modal" data-bs-target="#modalentrada">
                 Entrada de Produto
             </button>

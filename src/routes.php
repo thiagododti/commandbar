@@ -17,6 +17,8 @@ $router->get('/mesa/{id}', 'ComandaController@mesa');
 $router->get('/funcionarios', 'FuncionarioController@funcList');
 
 $router->post('/funcionarios/cadastrar', 'FuncionarioController@cadFuncAdd');
+$router->get('/lista/entradas', 'ProdutoController@relatorioAlmoxarifado');
+
 
 $router->get('/produtos', 'ProdutoController@productList');
 $router->get('/produtos/Descricao', 'ProdutoController@prodByDesc');
@@ -33,6 +35,7 @@ $router->get('/fornecedores', 'FornecedorController@fornList');
 $router->post('/fornecedores/cadastrar', 'FornecedorController@cadFornAdd');
 
 $router->post('/mesas/nova/mesa', 'ComandaController@abrirMesa');
+$router->post('/mesa/fechar', 'ComandaController@fecharMesa');
 
 $router->post('/mesa/novo/produto', 'AtendimentoController@novoProdutoMesa');
 $router->get('/retirar/produto/{id}', 'AtendimentoController@retirarProdutoComanda');
