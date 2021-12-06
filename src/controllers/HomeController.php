@@ -6,13 +6,27 @@ use \core\Controller;
 use src\dao\ComandaDao;
 use src\dao\FuncionarioDao;
 use src\models\Comanda;
-use src\models\Funcionario;
+use src\helper\LoginSuport;
+
 
 class HomeController extends Controller
 {
 
+    private $usuarioLogado;
+
+    public function __construct()
+    {
+        $this->usuarioLogado = LoginSuport::verificaLogin();
+
+        if ($this->usuarioLogado === false) {
+
+            $this->redirect('/login');
+        }
+    }
+
     public function index()
     {
+
         $funcionarioDao = new FuncionarioDao();
         $array = $funcionarioDao->buscarTodos();
 
@@ -33,7 +47,7 @@ class HomeController extends Controller
             }
         }
 
-        $this->render('home', [
+        $this->render('mesas', [
             'funcionarios' => $array,
             'status' => $statusComanda
         ]);

@@ -5,12 +5,24 @@ namespace src\controllers;
 use \core\Controller;
 use src\dao\EnderecoDao;
 use src\dao\FornecedorDao;
+use src\helper\LoginSuport;
 use src\models\Endereco;
 use src\models\Fornecedor;
 
 class FornecedorController extends Controller
 {
 
+    private $usuarioLogado;
+
+    public function __construct()
+    {
+        $this->usuarioLogado = LoginSuport::verificaLogin();
+
+        if ($this->usuarioLogado === false) {
+
+            $this->redirect('/login');
+        }
+    }
     public function fornList()
     {
         $fornecedorDao = new FornecedorDao();

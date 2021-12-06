@@ -6,13 +6,24 @@ use \core\Controller;
 use src\dao\AtendimentoDao;
 use src\dao\ComandaDao;
 use src\dao\ProdutoDao;
+use src\helper\LoginSuport;
 use src\models\Atendimento;
 use src\models\Comanda;
 use src\models\Produto;
 
 class AtendimentoController extends Controller
 {
+    private $usuarioLogado;
 
+    public function __construct()
+    {
+        $this->usuarioLogado = LoginSuport::verificaLogin();
+
+        if ($this->usuarioLogado === false) {
+
+            $this->redirect('/login');
+        }
+    }
     public function novoProdutoMesa()
     {
 
@@ -25,7 +36,7 @@ class AtendimentoController extends Controller
         $novoProd = filter_input_array(INPUT_POST);
 
         if (isset($_POST['novacompra'])) {
-            
+
             $produto->setProdId($novoProd['PROD_ID']);
             $qtProduto = $produtoDao->buscarProdutos($produto);
             foreach ($qtProduto as $prod);

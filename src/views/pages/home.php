@@ -8,6 +8,11 @@
         <div class="col">
 
 
+            <?php if (!empty($flash)) {
+                echo $flash;
+            } ?>
+
+
             <form method="POST" action="<?= $base; ?>/login">
                 <div class="mb-3">
                     <label for="InputCpf" class="form-label">CPF</label>

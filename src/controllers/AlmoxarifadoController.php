@@ -5,9 +5,21 @@ namespace src\controllers;
 use \core\Controller;
 use src\dao\AlmoxarifadoDao;
 use src\dao\ProdutoDao;
+use src\helper\LoginSuport;
 
 class AlmoxarifadoController extends Controller
 {
+    private $usuarioLogado;
+
+    public function __construct()
+    {
+        $this->usuarioLogado = LoginSuport::verificaLogin();
+
+        if ($this->usuarioLogado === false) {
+
+            $this->redirect('/login');
+        }
+    }
     public function cancelarEntrada($id)
     {
         $almoxarifadoDao = new AlmoxarifadoDao();

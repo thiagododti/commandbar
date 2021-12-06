@@ -7,11 +7,22 @@ use src\models\Funcionario;
 use src\models\Endereco;
 use src\dao\FuncionarioDao;
 use src\dao\EnderecoDao;
+use src\helper\LoginSuport;
 
 class FuncionarioController extends Controller
 {
 
+    private $usuarioLogado;
 
+    public function __construct()
+    {
+        $this->usuarioLogado = LoginSuport::verificaLogin();
+
+        if ($this->usuarioLogado === false) {
+
+            $this->redirect('/login');
+        }
+    }
 
     public function funcList()
     {

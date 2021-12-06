@@ -6,12 +6,23 @@ use \core\Controller;
 use src\dao\AlmoxarifadoDao;
 use src\dao\FornecedorDao;
 use src\dao\ProdutoDao;
+use src\helper\LoginSuport;
 use src\models\Almoxarifado;
 use src\models\Produto;
 
 class ProdutoController extends Controller
 {
+    private $usuarioLogado;
 
+    public function __construct()
+    {
+        $this->usuarioLogado = LoginSuport::verificaLogin();
+
+        if ($this->usuarioLogado === false) {
+
+            $this->redirect('/login');
+        }
+    }
     public function productList()
     {
         $produtoDao = new ProdutoDao();

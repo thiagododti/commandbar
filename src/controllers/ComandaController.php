@@ -7,11 +7,22 @@ use src\dao\AtendimentoDao;
 use src\dao\ComandaDao;
 use src\dao\FuncionarioDao;
 use src\dao\ProdutoDao;
+use src\helper\LoginSuport;
 use src\models\Comanda;
 
 class ComandaController extends Controller
 {
+    private $usuarioLogado;
 
+    public function __construct()
+    {
+        $this->usuarioLogado = LoginSuport::verificaLogin();
+
+        if ($this->usuarioLogado === false) {
+
+            $this->redirect('/login');
+        }
+    }
     public function mesas()
     {
         $funcionarioDao = new FuncionarioDao();

@@ -15,14 +15,15 @@ class ProdutoDao
     {
 
         try {
-            $sql = "INSERT INTO PRODUTOS(PROD_DESC,PROD_MARCA,PROD_VALOR,PROD_STAT,PROD_CATEG)
-            VALUE (?,?,?,?,?)";
+            $sql = "INSERT INTO PRODUTOS(PROD_DESC,PROD_MARCA,PROD_VALOR,PROD_STAT,PROD_CATEG,PROD_QTD)
+            VALUE (?,?,?,?,?,?)";
             $stmt = Database::getInstance()->prepare($sql);
             $stmt->bindValue(1, $p->getProdDesc());
             $stmt->bindValue(2, $p->getProdMarca());
             $stmt->bindValue(3, $p->getProdValor());
             $stmt->bindValue(4, $p->getProdStat());
             $stmt->bindValue(5, $p->getProdCateg());
+            $stmt->bindValue(6, 0);
             $stmt->execute();
         } catch (Exception $e) {
             print "Erro ao Inserir Produto <br>" . $e;

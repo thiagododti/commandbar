@@ -16,7 +16,7 @@
 			<img src="<?= $base; ?>/assets/img/loja.png" alt="" class="d-inline-block align-text-block">
 			Command Bar | Gerenciamento do estabelecimento
 		</a>
-		<button type="button" class="btn btn-light">Sair</button>
+		<a href="<?= $base; ?>/sair"><button type="button" class="btn btn-light">Sair</button></a>
 	</nav>
 	<div class="container-fluid">
 

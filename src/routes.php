@@ -5,9 +5,12 @@ use src\controllers\LoginController;
 
 $router = new Router();
 
+
+
 $router->get('/', 'HomeController@index');
-
-
+$router->get('/login', 'LoginController@entrar');
+$router->post('/login', 'LoginController@entradaUsuario');
+$router->get('/sair', 'LoginController@sairSistema');
 
 
 $router->get('/mesas', 'ComandaController@mesas');
@@ -15,7 +18,6 @@ $router->get('/mesa/{id}', 'ComandaController@mesa');
 
 
 $router->get('/funcionarios', 'FuncionarioController@funcList');
-
 
 
 $router->post('/funcionarios/cadastrar', 'FuncionarioController@cadFuncAdd');
