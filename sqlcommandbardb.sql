@@ -88,7 +88,7 @@ select * from almoxarifados;
 select * from atendimentos;
 select * from produtos;
 select * from comandas;
-UPDATE COMANDAS SET COM_VLGARC = 0 WHERE COM_ID=1;
+UPDATE PRODUTOS SET PROD_QTD = 0 WHERE PROD_ID = 1;
 SELECT * FROM COMANDAS WHERE COM_STATUS = "Aberta";
 
 SELECT * FROM COMANDAS WHERE COM_MESA = 1 and COM_STATUS = "ABERTA";
