@@ -89,7 +89,7 @@ class FornecedorDao
         $fornecedor->setForRazao($lista['FOR_RAZAO']);
         $fornecedor->setForDdd($lista['FOR_DDD']);
         $fornecedor->setForTel($lista['FOR_TEL']);
-        $fornecedor->setForCnpj($lista['FOR_TEL']);
+        $fornecedor->setForCnpj($lista['FOR_CNPJ']);
         $fornecedor->setForEnd($lista['END_ID']);
 
         return $fornecedor;
