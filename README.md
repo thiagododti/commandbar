@@ -13,21 +13,6 @@ Todos os arquivos de **configuração** e aplicação estão dentro da pasta *sr
 
 As configurações de Banco de Dados e URL estão no arquivo *src/Config.php*
 
-É importante configurar corretamente a constante *BASE_DIR*:
-> const BASE_DIR = '/**PastaDoProjeto**/public';
-
 ## Uso
-Você deve acessar a pasta *public* do projeto.
+Você deve acessar o projeto através do endereço *http://localhost/commandbar/public/*.
 
-O ideal é criar um ***alias*** específico no servidor que direcione diretamente para a pasta *public*.
-
-## Modelo de MODEL
-```php
-<?php
-namespace src\models;
-use \core\Model;
-
-class Usuario extends Model {
-
-}
-```
